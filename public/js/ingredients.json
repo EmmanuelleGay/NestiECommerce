@@ -1,0 +1,90 @@
+[
+    {
+        "ingredients": "poudre d'amande",
+        "images": "almond_powder.jpg"
+    },
+    {
+        "ingredients": "pommes",
+        "images": "apple.jpg"
+    },
+    {
+        "ingredients": "bananes",
+        "images": "bananas.jpg"
+    },
+    {
+        "ingredients": "fruits rouges",
+        "images": "berries.jpg"
+    },
+    {
+        "ingredients": "beurre",
+        "images": "butter.jpg"
+    },
+    {
+        "ingredients": "carottes",
+        "images": "carrots.jpg"
+    },
+    {
+        "ingredients": "cerises",
+        "images": "cherry.jpg"
+    },
+    {
+        "ingredients": "chocolat",
+        "images": "chocolate.jpg"
+    },
+    {
+        "ingredients": "café",
+        "images": "coffee.jpg"
+    },
+    {
+        "ingredients": "fromage blanc",
+        "images": "cottage_cheese.jpg"
+    },
+    {
+        "ingredients": "crème",
+        "images": "cream.jpg"
+    },
+    {
+        "ingredients": "pate sablée",
+        "images": "dough.jpg"
+    },
+    {
+        "ingredients": "oeufs",
+        "images": "eggs.jpg"
+    },
+    {
+        "ingredients": "farine",
+        "images": "flour.jpg"
+    },
+    {
+        "ingredients": "citron",
+        "images": "lemon.jpg"
+    },
+    {
+        "ingredients": "lait",
+        "images": "milk.jpg"
+    },
+    {
+        "ingredients": "poire",
+        "images": "pear.jpg"
+    },
+    {
+        "ingredients": "pistaches",
+        "images": "pistachio.jpg"
+    },
+    {
+        "ingredients": "fraises",
+        "images": "strawberries.jpg"
+    },
+    {
+        "ingredients": "sucre",
+        "images": "sugar.jpg"
+    },
+    {
+        "ingredients": "boudoir",
+        "images": "sweet_biscuits.jpg"
+    },
+    {
+        "ingredients": "vanille",
+        "images": "vanilla.jpg"
+    }
+]

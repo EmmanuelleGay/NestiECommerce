@@ -1,0 +1,18 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}
+    API
+{% endblock %}
+
+{% block body %}
+<h1>API</h1>
+<ul>
+    <li>
+        <a href="<?= site_url("api/recipes") ?>">Voir toutes les recettes</a>
+    </li>
+    <li>
+        <a href="<?= site_url("api/category/seazon") ?>">Voir toutes les recettes de saison</a>
+    </li>
+</ul>
+{% endblock %}
+

@@ -1,0 +1,89 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1 id="titleFridge" class="text-center my-3">J'ai dans mes placards...</h1>
+        <section class="mt-5">
+
+
+            <div class="cardcontainer list">
+
+                <ul class="cardlist"></ul>
+
+                <button class="but-nope">X</button>
+                <button class="but-yay">✓</button>
+
+            </div>
+
+            <p id="nameIngredient" class="text-center my-2"></p>
+            <div class="row w-50 mt-4 mx-auto">
+                <button id="reload" onclick="window.location.reload()"></button>
+                <button id="buttonRecipe" class="btn btn-info mx-auto"></button>
+
+            </div>
+            <ul class="cardlist noRecipe" id="results"></ul>
+
+        </section>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="mt-5 text-center">Historique des recettes</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-4">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{ base_url("js/suggestion.js") }}"></script>
+{% endblock %}

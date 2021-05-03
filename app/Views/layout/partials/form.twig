@@ -1,0 +1,8 @@
+{% macro input (name,label) %}
+
+    <div>
+        <label for="{{ name }}">{{ label }}</label>
+        <input type="text" id="{{ name }}" name="{{ name }}">
+    </div>
+
+{% endmacro %}

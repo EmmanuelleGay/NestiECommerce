@@ -1,0 +1,116 @@
+ERROR - 2021-04-22 09:40:53 --> mysqli_sql_exception: Table 'nesti_php.tag' doesn't exist in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\BaseModel.php(583): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Tagcontroller.php(16): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Tagcontroller->allTags()
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tagcontroller))
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-04-22 09:40:53 --> Table 'nesti_php.tag' doesn't exist
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\BaseModel.php(583): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Tagcontroller.php(16): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Tagcontroller->allTags()
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tagcontroller))
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-04-22 12:44:58 --> Unable to find template "article/oneRecipe.twig" (looked into: C:\xampp\htdocs\www\PHP\NestiECommerce\app\Views).
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Loader\FilesystemLoader.php(131): Twig\Loader\FilesystemLoader->findTemplate('article/oneReci...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(261): Twig\Loader\FilesystemLoader->getCacheKey('article/oneReci...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->getTemplateClass('article/oneReci...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(277): Twig\Environment->load('article/oneReci...')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(177): Twig\Environment->render('article/oneReci...', Array)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(156): Kenjis\CI4Twig\Twig->render('article/oneReci...', Array)
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\ArticleController.php(13): Kenjis\CI4Twig\Twig->display('article/oneReci...')
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\ArticleController->oneArticle()
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ArticleController))
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-04-22 13:27:43 --> Invalid file: templates/header.php
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/heade...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Common.php(1217): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(63): view('templates/heade...', Array)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(14): App\Controllers\BaseController->renderTemplate('test')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->test()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-22 13:32:33 --> Invalid file: templates/header.php
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/heade...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Common.php(1217): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(63): view('templates/heade...', Array)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(14): App\Controllers\BaseController->renderTemplate('test')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->test()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-22 13:33:12 --> Invalid file: templates/header.php
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/heade...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Common.php(1217): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(63): view('templates/heade...', Array)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(14): App\Controllers\BaseController->renderTemplate('test')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->test()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-22 13:38:54 --> Invalid file: templates/header.php
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/heade...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Common.php(1217): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(63): view('templates/heade...', Array)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(14): App\Controllers\BaseController->renderTemplate('test')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->test()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-22 13:41:05 --> Call to undefined method App\Controllers\Home::render()
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->test()
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-04-22 13:41:22 --> Invalid file: templates/header.php
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\View\View.php(203): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/heade...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Common.php(1217): CodeIgniter\View\View->render('templates/heade...', Array, true)
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(63): view('templates/heade...', Array)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(14): App\Controllers\BaseController->renderTemplate('test')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->test()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2021-04-22 16:20:17 --> Uncaught CodeIgniter\Exceptions\PageNotFoundException: Controller or its method is not found: \App\Controllers\Fontawesome::css in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php:896
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(896): CodeIgniter\Exceptions\PageNotFoundException::forControllerNotFound('\\App\\Controller...', 'css')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-04-22 16:20:17 --> Uncaught CodeIgniter\Exceptions\PageNotFoundException: Controller or its method is not found: \App\Controllers\Fontawesome::css in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php:896
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(896): CodeIgniter\Exceptions\PageNotFoundException::forControllerNotFound('\\App\\Controller...', 'css')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

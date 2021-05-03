@@ -1,0 +1,326 @@
+/* Design of a card **************************************************************************************************************************************/
+
+.cardcontainer {
+    padding: 0px;
+    text-align: center;
+    width: 150px;
+}
+
+/* Button designs ****************************************************************************************************************************************/
+
+.cardcontainer button {
+    background: #0c0;
+    border: none;
+    color: #fff;
+    border-radius: 50% 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    margin: 0 .5em;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.cardcontainer.yes .cardIngredient {
+    -webkit-animation: yay 0.7s ease-out;
+    animation: yay 0.7s ease-out;
+}
+
+.cardcontainer.nope .cardIngredient {
+    -webkit-animation: nope 0.7s ease-out;
+    animation: nope 0.7s ease-out;
+}
+
+/*Button recipes and reload  *************************************************************************************************************************************************/
+/* 
+a,#reload {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 10vw;
+    padding: 0.5em;
+    font-family: cursive;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: rgb(214, 158, 110);
+    color: #fff;
+    border: none;
+} */
+
+/* Animations ********************************************************************************************************************************************/
+
+@keyframes yay {
+    from {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(40deg) translateY(-80px);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes yay {
+    from {
+        -webkit-transform: rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: rotate(40deg) translateY(-80px);
+        opacity: 0;
+    }
+}
+
+@keyframes nope {
+    from {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: rotate(-40deg) translateY(-80px);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes nope {
+    from {
+        -webkit-transform: rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: rotate(-40deg) translateY(-80px);
+        opacity: 0;
+    }
+}
+
+/*body****************************************************************************************************************************************************/
+
+/* body {
+    font-family: helvetica, arial, sans-serif;
+    background-image: url(../images/wallpaper_table.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    font-size: 20px;
+    padding: 0;
+    overflow: hidden;
+} */
+
+/*section*************************************************************************************************************************************************/
+
+/* section {
+    display: block;
+    padding: 0.5em 1em;
+    margin: 60px;
+} */
+
+/* p, .titleFridge {
+    font-size: 30px;
+    color: rgb(80, 47, 47);
+    font-family: cursive;
+    text-align: center;
+      margin: 20px;
+}
+
+.titleFridge {
+    text-align: center;
+    margin-top: 50px;
+} */
+
+.list .cardIngredient {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.list .current {
+    display: block;
+    z-index: 30;
+}
+
+.cardcontainer.yes .cardIngredient {
+    -webkit-animation: none;
+    animation: none;
+}
+
+.cardcontainer.nope .cardIngredient {
+    -webkit-animation: none;
+    animation: none;
+}
+
+.cardcontainer.yes .current {
+    -webkit-animation: yay 0.7s ease-out;
+    animation: yay 0.7s ease-out;
+}
+
+.cardcontainer.nope .current {
+    -webkit-animation: nope 0.7s ease-out;
+    animation: nope 0.7s ease-out;
+}
+
+.cardlist li {
+    z-index: 1;
+}
+
+.cardlist li:nth-child(0) {
+    z-index: 5;
+}
+
+.cardlist li:nth-child(1) {
+    z-index: 4;
+}
+
+.cardlist li:nth-child(2) {
+    z-index: 3;
+}
+
+.cardlist li:nth-child(even) {
+    transform: rotate(10deg);
+    top: 8px;
+    transition: 0.4s;
+}
+
+.cardlist li:nth-child(3n) {
+    transform: rotate(-8deg);
+    top: -8px;
+    transition: 0.4s;
+}
+
+.cardlist li:nth-child(5n) {
+    transform: rotate(7deg);
+    top: -13px;
+    transition: 0.4s;
+}
+
+ .cardIngredient {
+    margin-left: -105px;
+    border-radius: 10px;
+} 
+
+.current {
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, .8);
+}
+
+.cardcontainer {
+    width: 250px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.list ul.cardlist {
+    position: relative;
+    margin: 0 0 40px 0;
+    height: 300px;
+}
+
+.imgSuggestion {
+    display: block;
+    width: 450px;
+    height: 300px;
+    border-radius: 10px;
+    border: solid 5px white;
+}
+
+.cardcontainer button.but-nope, .cardcontainer button.but-yay {
+    z-index: 10;
+}
+
+.cardcontainer button.but-nope {
+    background:rgb(235,104,100);
+}
+
+.cardcontainer button.but-yay {
+    background:rgb(90,145,197);
+}
+
+.but-nope::after {
+    content: 'Non';
+    position: absolute;
+    top: -35px;
+    left: -300px;
+    font-size: 30px;
+    transform: rotate(-30deg);
+    background: rgb(235,104,100);
+    padding: .2em .4em;
+    color: #fff;
+    display: block;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.but-nope:hover::after {
+    opacity: 1;
+    top: 100px;
+}
+
+.but-yay::after {
+    content: 'Oui';
+    position: absolute;
+    top: -35px;
+    right: -300px;
+    font-size: 30px;
+    background: rgb(90,145,197);
+    color: #fff;
+    padding: .2em .4em;
+    transform: rotate(30deg);
+    display: block;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.but-yay:hover::after {
+    opacity: 1;
+    top: 100px;
+}
+
+#results {
+    opacity: 0;
+    position: absolute;
+    top: -20000px;
+    transition: opacity 0.5s;
+    margin: 0;
+    padding: 0;
+}
+
+#results li {
+    margin: 22px;
+    padding: 0 0 5px 5px;
+    list-style: none;
+    float: left;
+    transform: rotate(0);
+    top: 0;
+}
+
+#results.live {
+    top: 0;
+    position: relative;
+    opacity: 1;
+}
+
+.extrainfo, .hoverinfo {
+    opacity: 0;
+    position: absolute;
+    bottom: 1em;
+    left: .5em;
+    line-height: 1em;
+}
+
+.live .hoverinfo, .live .extrainfo {
+    opacity: 1;
+    position: relative;
+}
+
+.cardIngredient:hover .hoverinfo {
+    color: #fff;
+    background: #000;
+    background: rgba(0, 0, 0, .7);
+    padding: .5em;
+    opacity: 1;
+    position: absolute;
+}

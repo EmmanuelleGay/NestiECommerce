@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse border" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+            <li class="nav-item mx-5">
+                <a class='nav-link {{ slug=="home" ? "active" : "" }}' href={{ base_url('home') }}>Accueil</a>
+            </li>
+            <li class="nav-item mx-5">
+                <a class='nav-link {{ slug=="article" ? "active" : "" }}' href={{ base_url('article') }}>Marché</a>
+            </li>
+            <li class="nav-item mx-5">
+                <a class='nav-link {{ slug=="recipe" ? "active" : "" }}' href={{ base_url('recette') }}>Recette</a>
+            </li>
+        </ul>
+    </div>
+
+    <img src={{ base_url('images/logo.png') }} alt="logo Nesti">
+        <div class="mx-5">Toute la patisserie en un seul clic</div>
+
+        <div>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item mx-3">
+                    <a class='text-nowrap nav-link border rounded-pill {{ slug=="shoppingCart" ? "active" : "" }}' href={{ base_url('panier') }}>
+                        <i class="fas fa-shopping-cart mx-2"></i>Mon panier</a>
+                </li>
+                <li class="nav-item mx-3">
+                    {% if loggedInUser %}
+                        <a class='text-nowrap nav-link border rounded-pill {{ slug=="user" ? "active" : "" }}' href={{ base_url('compte')~'/'~ loggedInUser.idUsers }}>
+                            <i class="fas fa-user-circle mx-2"></i>
+                            {{ loggedInUser.login }}</a>
+
+                    {% endif %}
+                </li>
+
+                <li class="nav-item mx-3">
+                    {% if loggedInUser %}
+                        <a class='text-nowrap nav-link active btn-info rounded' href={{ base_url('deconnexion') }}>
+                            <i class="fas fa-sign-out-alt mx-2"></i>Déconnexion</a>
+                    {% endif %}
+                    {% if loggedInUser is empty %}
+                    <a class='text-nowrap nav-link active btn-info rounded' href={{ base_url('connexion') }}>
+                        <i class="fas fa-sign-in-alt mx-2"></i></i>Connexion</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav>
