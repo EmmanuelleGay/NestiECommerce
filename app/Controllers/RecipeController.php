@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\TagModel;
+
 class Recipecontroller extends BaseController
 {
 	public function list()
@@ -9,6 +11,12 @@ class Recipecontroller extends BaseController
 		//a voir pour le mettre en base controlleur pour éviter de devoir le mettre partout
 	$data["loggedInUser"] = UsersController::getLoggedInUser();
 	$data["slug"] = "recipe";
+
+	$tagModel = new TagModel();
+	$tags = $tagModel->findAll();
+
+	$data["tags"] = $tags;
+
  	$this->twig->display("recipe/list", $data);
 	}
 
@@ -17,5 +25,7 @@ class Recipecontroller extends BaseController
 		$data["slug"] = "recipe";
 		$this->twig->display('recipe/oneRecipe', $data);
     }
+
+
 
 }

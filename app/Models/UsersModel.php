@@ -14,11 +14,11 @@ class UsersModel extends Model
 
     public function findUser($login)
     {
-        return $this->where("login", $login)->first();
+       return $this->where("login", $login)->first();
 
         // $builder = $this->db->table("nes_ad_users");
         // $builder->where("login", $login);
-        // return $builder->get()->first();
+        // return $builder->get();
     }
 
 

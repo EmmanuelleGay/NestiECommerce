@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\UsersModel;
 use App\Tools\FormatUtil;
 use App\Entities\Users;
-$session = \Config\Services::session();
+
 
 class UsersController extends BaseController
 {

@@ -5,5 +5,24 @@
 {% endblock %}
 
 {% block body %}
-    <p>Listes des recettes</p>
-{% endblock %}
+
+
+    <div class="container mt-3">
+
+        <div class="row">
+            <div class="col-sm-8 col-md-4">
+                <input type="text" class="form-control search-bar" aria-label="searchbar" aria-describedby="searchbar" name="" placeholder="Recette"></div>
+                <i class="fas fa-search fa-2x"></i>
+            </div>
+            <div class="row mt-3">
+                {% for t in tags %}
+                <div class="col-12">{{t.name}}</div>
+                <div></div>
+                  
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+    {% endblock %}
