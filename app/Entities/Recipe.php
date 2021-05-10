@@ -4,6 +4,7 @@ namespace App\Entities;
 use CodeIgniter\Entity;
 
 use App\Models\TagModel;
+use App\Models\ImageModel;
 
 class Recipe extends Entity
 {
@@ -14,7 +15,9 @@ class Recipe extends Entity
         return $tagModel->where("idRecipe", $idRecipe)->first();
     }
 
-    public function getRecipeByTag(){
-        
+
+    public function getImage($idImage){
+        $imageModel = new ImageModel();
+        return $imageModel->where("idImage", $idImage)->first();
     }
 }

@@ -1,0 +1,102 @@
+CRITICAL - 2021-05-10 08:58:32 --> syntax error, unexpected token "[", expecting "," or ";"
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(5): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(294): include_once('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(894): class_exists('\\App\\Controller...', true)
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2021-05-10 08:59:45 --> Constant expression contains invalid operations
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-10 12:20:54 --> Undefined variable $data
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 52)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(910): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(423): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 12:21:16 --> Undefined variable $data
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 52)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(910): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(423): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 12:55:57 --> Call to undefined method Kenjis\CI4Twig\Twig::addFilter()
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(910): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(423): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2021-05-10 13:03:21 --> Cannot use object of type Twig\TwigFilter as array
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(64): Kenjis\CI4Twig\Twig->__construct(Object(Twig\TwigFilter))
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(910): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(423): CodeIgniter\CodeIgniter->createController()
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-10 13:05:03 --> Unable to find template "recipe/list" (looked into: Views).
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Loader\FilesystemLoader.php(131): Twig\Loader\FilesystemLoader->findTemplate('recipe/list')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(261): Twig\Loader\FilesystemLoader->getCacheKey('recipe/list')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->getTemplateClass('recipe/list')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(291): Twig\Environment->load('recipe/list')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\RecipeController.php(32): Twig\Environment->display('recipe/list', Array)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Recipecontroller->list()
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Recipecontroller))
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-10 13:05:21 --> Unable to find template "home" (looked into: Views).
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Loader\FilesystemLoader.php(131): Twig\Loader\FilesystemLoader->findTemplate('home')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(261): Twig\Loader\FilesystemLoader->getCacheKey('home')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->getTemplateClass('home')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(291): Twig\Environment->load('home')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(11): Twig\Environment->display('home', Array)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-10 13:08:42 --> Unable to find template "home" (looked into: C:\xampp\htdocs\www\PHP\NestiECommerce\app\Config/../Views).
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Loader\FilesystemLoader.php(131): Twig\Loader\FilesystemLoader->findTemplate('home')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(261): Twig\Loader\FilesystemLoader->getCacheKey('home')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->getTemplateClass('home')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(291): Twig\Environment->load('home')
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(11): Twig\Environment->display('home', Array)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-10 13:11:30 --> Unknown "translate" filter.
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\ExpressionParser.php(558): Twig\ExpressionParser->getFilterNodeClass('translate', 22)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\ExpressionParser.php(543): Twig\ExpressionParser->parseFilterExpressionRaw(Object(Twig\Node\Expression\GetAttrExpression))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\ExpressionParser.php(401): Twig\ExpressionParser->parseFilterExpression(Object(Twig\Node\Expression\GetAttrExpression))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\ExpressionParser.php(284): Twig\ExpressionParser->parsePostfixExpression(Object(Twig\Node\Expression\GetAttrExpression))
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\ExpressionParser.php(175): Twig\ExpressionParser->parsePrimaryExpression()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\ExpressionParser.php(70): Twig\ExpressionParser->getPrimary()
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(128): Twig\ExpressionParser->parseExpression()
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\TokenParser\ForTokenParser.php(42): Twig\Parser->subparse(Array)
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(171): Twig\TokenParser\ForTokenParser->parse(Object(Twig\Token))
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\TokenParser\BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(171): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#11 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(84): Twig\Parser->subparse(NULL, false)
+#12 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(479): Twig\Parser->parse(Object(Twig\TokenStream))
+#13 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(507): Twig\Environment->parse(Object(Twig\TokenStream))
+#14 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(348): Twig\Environment->compileSource(Object(Twig\Source))
+#15 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->loadTemplate('__TwigTemplate_...', 'recipe/list.twi...')
+#16 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(277): Twig\Environment->load('recipe/list.twi...')
+#17 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(177): Twig\Environment->render('recipe/list.twi...', Array)
+#18 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(156): Kenjis\CI4Twig\Twig->render('recipe/list.twi...', Array)
+#19 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\RecipeController.php(32): Kenjis\CI4Twig\Twig->display('recipe/list', Array)
+#20 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Recipecontroller->list()
+#21 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Recipecontroller))
+#22 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#23 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#24 {main}

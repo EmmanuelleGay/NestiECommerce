@@ -3,8 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UsersModel;
-use App\Tools\FormatUtil;
-use App\Entities\Users;
+
 
 
 class UsersController extends BaseController
@@ -14,17 +13,14 @@ class UsersController extends BaseController
 
   public function oneUser()
   {
-    $data["slug"] = "user";
-    $this->twig->display('users/oneUser', $data);
+    $this->data["slug"] = "user";
+    $this->twig->display('users/oneUser', $this->data);
   }
 
 
   public function login()
   {
-    $data=[];
-    //   helper("form");
 
-    helper('security');
     if (isset($_POST['User']['login'])) {
 
       $login = sanitize_filename($_POST['User']['login']);
@@ -32,6 +28,7 @@ class UsersController extends BaseController
 
       $model = new UsersModel();
       $candidate = $model->findUser($login);
+
 
       if ($candidate != null && $candidate->isPassword($plaintextPassword)) {
       
@@ -41,6 +38,7 @@ class UsersController extends BaseController
         //   setcookie("user[login]", $candidate->login, 2147483647, '/');
         //   setcookie("user[password]", $plaintextPassword, 2147483647, '/');
         // }
+
         self::setLoggedInUser($candidate, $plaintextPassword);
 
       //   $dataSession = array(
@@ -56,19 +54,18 @@ class UsersController extends BaseController
        
       }
       else {
-        $data["message"] = "failed";
+        $this->data["message"] = "failed";
       }
         
     }
 
-    $this->twig->display('users/login',$data);
+    $this->twig->display('users/login',$this->data);
   }
 
   public function logout(){
     self::setLoggedInUser(null);
-    $data["message"] = "logout";
-    $this->twig->display('users/login',$data);
-
+    $this->data["message"] = "logout";
+    $this->twig->display('users/login',$this->data);
   }
 
      /**
@@ -94,8 +91,5 @@ class UsersController extends BaseController
             setcookie("user[password]", $plaintextPassword, 2147483647, '/');
         }
     }
-
-
-
 
 }

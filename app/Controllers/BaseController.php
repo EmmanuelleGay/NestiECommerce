@@ -27,7 +27,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ["form"];
+	protected $helpers = ["form", "security", "date", "inflector"];
 
 	/**
 	 * Constructor.
@@ -37,14 +37,13 @@ class BaseController extends Controller
 	 * @param LoggerInterface   $logger
 	 */
 
-	protected $data = [];
 
-	public static function display(){
-		$data["loggedInUser"] = UsersController::getLoggedInUser();
-	}
-	
+
+
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
 	{
+		$this->data["loggedInUser"] = UsersController::getLoggedInUser();
+	
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
 
@@ -52,8 +51,9 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
-
+	
 		$this->twig = new \Kenjis\CI4Twig\Twig();
+
 	}
 
 	//fonction qui ajoute automatiquement le header et le footer de la page
@@ -71,6 +71,4 @@ class BaseController extends Controller
 		echo view('' . $page, $data);
 		echo view('templates/footer', $data);
 	}
-
-
 }

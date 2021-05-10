@@ -28,7 +28,6 @@ class Article extends Entity
         // $builder->where("idArticle", $idArticle);
         // return $builder->get()->getResult();
         $ArticlePriceModel = new ArticlePriceModel();
-
         return $ArticlePriceModel->where("idArticle", $idArticle)->first();
     }
 

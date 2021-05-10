@@ -10,7 +10,7 @@ class RecipeModel extends Model
  //   protected $allowedFields = ['name']; // Nom des colonnes autorisées : mettre toutes les colonnes a enregistrer, insérer ou mise à jour
     protected $returnType = 'App\Entities\Recipe'; // Type de retour
     // protected $useTimestamps = true; // Utilisation du timestamps : colonne created_at, updated_at
-
+    protected $primaryKey = 'idRecipe';
 
     public function findAllForApi() {
    //     $query = $this->db->query('SELECT * FROM view_api_recipes');

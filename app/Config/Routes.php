@@ -34,21 +34,16 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('test', 'Home::test');
-// //a gauche : l'url (le slug), a droite l'endroit ou il doit aller ; d'abord le controller, après c'est le nom de la fonction
-//$routes->add('allTags','Tagcontroller::allTags');
-//$routes->add('createTag','Tagcontroller::createTag');
-//$routes->add('editTag/(:num)','Tagcontroller::editTag/$1');
-//$routes->add('oneTag/(:num)','Tagcontroller::oneTag/$1');
 
 $routes->add('recette','RecipeController::list');
-$routes->add('recette/(:num)','RecipeController::oneRecipe');
+$routes->add('recette/(:num)','RecipeController::oneRecipe/$1');
 
 $routes->add('article','ArticleController::list');
-$routes->add('article/(:num)','ArticleController::oneArticle');
+$routes->add('article/(:num)','ArticleController::oneArticle/$1');
 
 $routes->add('panier','ShoppingCartController::validOrder');
 
-$routes->add('compte/(:num)','UsersController::oneUser');
+$routes->add('compte/(:num)','UsersController::oneUser/$1');
 $routes->add('connexion/','UsersController::login');
 $routes->add('deconnexion/','UsersController::logout');
 
@@ -58,15 +53,6 @@ $routes->get('/api/recipes/(:num)/ingredient', "ApiController::recipesIngredient
 $routes->get('/api/recipes/(:num)/step', "ApiController::recipesSteps/$1");
 $routes->get('/api/category/(:alpha)', "ApiController::category/$1");
 
-
-
-
-// $routes->get('/test', 'Home::test');
-// $routes->get('/tags/allTags','Tagcontroller::allTags/');
-// $routes->get('/tags/(:num)','Tagcontroller::oneTag/$1');
-// $routes->get('/tags/editTag','Tagcontroller::editTag');
-// $routes->get('/tags/createTag','Tagcontroller::createTag');
-// $routes->get('/tags/searchTag','Tagcontroller::searchTag');
 
 /*
  * --------------------------------------------------------------------

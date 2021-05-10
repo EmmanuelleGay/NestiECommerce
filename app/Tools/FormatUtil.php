@@ -9,6 +9,12 @@ namespace App\Tools;
  */
 class FormatUtil
 {
+    protected static $translations = [
+        'easy' => 'Facile',
+        'seasonal' => 'De saison',
+        'traditionnal' => 'Traditionnelle',
+        'glutenFree' => 'Sans gluten',
+    ];
 
 
     /**
@@ -21,5 +27,10 @@ class FormatUtil
     public static function dump($var)
     {
         echo "<pre>" . htmlentities(print_r($var, true)) . "</pre>";
+    }
+
+    public static function translate($english)
+    {
+        return static::$translations[strtolower($english)];
     }
 }

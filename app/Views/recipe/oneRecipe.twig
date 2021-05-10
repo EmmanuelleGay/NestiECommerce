@@ -5,8 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <div>Recette du carrot Cake</div>
+    <div class="container mt-3 border">
+        <div class="row justify-content-around">
+            <p class="col-md-8 text-center">{{ recipe.name }}</p>
+            <p class="col-md-4 text-center">{{ recipe.difficulty }} /5</p>
+        <div>
+    </div>
 
-    <p>oeufs</p>
-    <p>carrottes</p>
+
 {% endblock %}
