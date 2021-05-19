@@ -6,11 +6,6 @@
 
 {% block body %}
 
-{% if validation.hasError('login') %}
-<div>{{validation.getError("login")}}</div>
-
-
-{% endif %}
 
 <div class="container-fluid">
     <div class = "row mt-3">
@@ -19,8 +14,9 @@
   
     <div class="row justify-content-center">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
-        
-            {{form_open(base_url('inscription'))}}
+     
+       
+            {{form_open(base_url('inscription'),  {"class" : isSubmitted ? "" :'no-validate'} )}}
 
               <div class="form-label-group">
                 <label for="lastname">Nom*</label>

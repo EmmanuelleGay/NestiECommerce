@@ -15,3 +15,10 @@
 #passwordStrenght.low{
     background-color: rgb(238, 118, 96);
 }
+
+.no-validate .is-invalid,
+.no-validate .is-valid{
+    border-color:#ced4da;
+    background-image: none;
+    padding-right: 0;
+}

@@ -107,6 +107,8 @@ class UsersController extends BaseController
 
       } else {
         $this->data['validation'] = $this->validator;
+        $this->data["isSubmitted"] = true;
+      
       };
     }
 
