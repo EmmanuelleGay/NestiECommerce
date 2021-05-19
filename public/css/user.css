@@ -1,0 +1,17 @@
+#passwordStrenght {
+    width: 0rem;
+    height: 1rem;
+    background-color: grey;
+}
+
+#passwordStrenght.high{
+    background-color: green;
+}
+
+#passwordStrenght.medium{
+    background-color: rgb(224, 178, 91);
+}
+
+#passwordStrenght.low{
+    background-color: rgb(238, 118, 96);
+}

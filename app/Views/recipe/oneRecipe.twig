@@ -5,12 +5,114 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-3 border">
-        <div class="row justify-content-around">
-            <p class="col-md-8 text-center">{{ recipe.name }}</p>
-            <p class="col-md-4 text-center">{{ recipe.difficulty }} /5</p>
-        <div>
-    </div>
+
+{% if message == 'gradeSuccess' %}
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-md-4 alert alert-success text-center">Merci d'avoir voté!</div>
+</div>
+{% elseif message == 'gradeFailed' %} 
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-md-4 alert alert-danger text-center">Votre note n'a pas pu être prise en compte. Merci de ré-éssayer en cliquant sur les étoiles.</div>
+</div>
+{% elseif message == 'commentSuccess' %} 
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-md-4 alert alert-danger text-center">Votre commentaire a bien été pris en compte. Il sera publié dès sa validation par notre équipe</div>
+</div>
+{% elseif message == 'gradeFailed' %} 
+<div class="row justify-content-center">
+    <div class="col-xs-12 col-md-4 alert alert-danger text-center">Votre commentaire n'a pas pu être prise en compte. Merci de ré-éssayer ultérieurement.</div>
+</div>
+{% endif %}
 
 
-{% endblock %}
+
+    <div class="container mt-3">
+        <div class="row ">
+            <h1 class="col-md-12 text-center text-primary ">{{ recipe.name }}</h1>
+        </div>
+        <div class="row">
+            <p class="col-12 text-center ">Difficulté : 
+                {{ recipe.difficulty }}
+                / 5</p>
+        </div>
+        <div class="row">
+            <p class="col-12 text-center ">Pour
+                {{ recipe.portions }}
+                personnes</p>
+        </div>
+        <div class="row">
+            <p class="col-12 text-center">{{ recipe.preparationTime }}
+                minutes</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                {% if recipe.idImage is empty %}
+                    <img class="card-img-top img-fluid" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/noImage.jpg" alt="{{ recipe.name }}">
+                    {% else %}
+                        <img class="card-img-top img-fluid" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/recipes/{{ recipe.getImage(recipe.idImage).name }}.{{ recipe.getImage(recipe.idImage).fileExtension }}" alt="{{ recipe.name }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="row mt-3 mb-1">
+                            <h3 class="col-md-6 col-xs-12 font-weight-bold secondaryColor">Liste des ingrédients</h3>
+                            {% for ir in recipe.getIngredientRecipe() %}
+                                <div class="col-12">{{ ir.quantity }}
+                                    {{ ir.getUnit(ir.idUnit).name }}
+                                    {{ ir.getProduct(ir.idIngredient).name }}</div>
+                            {% endfor %}
+                            <button class="btn btn-primary mt-2">Mettre au panier</button>
+                        </div>
+
+                        <div class="row mt-3 mb-1">
+                            <h3 class="col-md-6 col-xs-12 font-weight-bold secondaryColor">Préparations</h3>
+                            {% for p in recipe.getParagraphs() %}
+                                <div class="col-12">
+                                    {{ p.content }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="row mt-3 mb-1">
+                            <h3 class="col-12 font-weight-bold secondaryColor">Envoyer un commentaire</h3>
+                            {{ form_open(base_url('recette')~'/'~ recipe.idRecipe) }}
+                            <input type="text" class="form-control mb-2" name = "recipe[commentTitle]" required placeholder="Titre" maxlength="50">
+                            <textarea class="form-control" id="comment" name="recipe[commentContent]" rows="6" cols="70" placeholder="Commentaire" maxlength="255" required></textarea>
+    
+                            <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+                      
+                            {{ validation.errors ? validation.errors.name }}
+                            {{ form_close }}
+                        </div>
+
+                        <div class="row mt-3 mb-1">
+                            <h3 class="col-12 font-weight-bold secondaryColor">Noter la recette</h3>
+                            {{ form_open(base_url('recette')~'/'~ recipe.idRecipe) }}
+                            <div class="col-12" id = "valueStar">
+                                <div id = "containerStar">
+                                    <img id="star_1" class = "star" src={{ base_url('images/star.png') }} alt="etoile">
+                                    <img id="star_2" class = "star" src={{ base_url('images/star.png') }} alt="etoile">
+                                    <img id="star_3" class = "star" src={{ base_url('images/star.png') }} alt="etoile">
+                                    <img id="star_4" class = "star" src={{ base_url('images/star.png') }} alt="etoile">
+                                    <img id="star_5" class = "star" src={{ base_url('images/star.png') }} alt="etoile">
+                                </div>
+                            </div>
+                            <input type="hidden" value ="" name="recipe[grade]" id="recipeGrade">
+                            <button type="submit" class="btn btn-primary mt-3">Noter</button>
+                    
+                            {{ validation.errors ? validation.errors.name }}
+                            {{ form_close }}
+                        </div>
+
+                    </div>
+        </div>
+
+        <div class = "row mt-3 justify-content-center ">
+            <h3 class ="col-12 font-weight-bold text-center secondaryColor">Les commentaires</h3>
+                {% for comment in recipe.getcomments %}
+                <div class = " col-8 border mb-2">
+                    <div class = "col-12 font-weight-bold text-center"> {{comment.commentTitle}}</div>
+                    <div class = "col-12 text-center"> {{comment.commentContent}}</div>
+                </div>
+                {% endfor %}
+        </div>
+
+                                {% endblock %}

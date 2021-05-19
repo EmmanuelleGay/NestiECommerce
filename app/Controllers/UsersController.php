@@ -4,12 +4,10 @@ namespace App\Controllers;
 
 use App\Models\UsersModel;
 
-
-
 class UsersController extends BaseController
 {
 
-  protected static $loggedInUser;
+
 
   public function oneUser()
   {
@@ -31,65 +29,87 @@ class UsersController extends BaseController
 
 
       if ($candidate != null && $candidate->isPassword($plaintextPassword)) {
-      
-     //   $data["login"] = $candidate->login;
+
+        //   $data["login"] = $candidate->login;
 
         // if(isset($_POST['User']['connectedChexbox'])){
         //   setcookie("user[login]", $candidate->login, 2147483647, '/');
         //   setcookie("user[password]", $plaintextPassword, 2147483647, '/');
         // }
 
-        self::setLoggedInUser($candidate, $plaintextPassword);
+        BaseController::setLoggedInUser($candidate, $plaintextPassword);
 
-      //   $dataSession = array(
-      //     'username' => $candidate->login
-      //   );
-      //  $this->session->set_userdata($dataSession);
-      //   $this->twig->addGlobal("session",$candidate->login);
-       
+        //   $dataSession = array(
+        //     'username' => $candidate->login
+        //   );
+        //  $this->session->set_userdata($dataSession);
+        //   $this->twig->addGlobal("session",$candidate->login);
 
-       // $this->twig->display('recipe/oneRecipe',$data);
+
+        // $this->twig->display('recipe/oneRecipe',$data);
         return redirect()->to(base_url('home'));
         exit();
-       
-      }
-      else {
+      } else {
         $this->data["message"] = "failed";
       }
-        
     }
 
-    $this->twig->display('users/login',$this->data);
+    $this->twig->display('users/login', $this->data);
   }
 
-  public function logout(){
-    self::setLoggedInUser(null);
+  public function logout()
+  {
+    BaseController::setLoggedInUser(null);
     $this->data["message"] = "logout";
-    $this->twig->display('users/login',$this->data);
+    setcookie("user[login]", null, 2147483647, '/');
+    setcookie("user[password]", null, 2147483647, '/');
+    $this->twig->display('users/login', $this->data);
   }
 
-     /**
-     * Get the value of user
-     */
-    public static function getLoggedInUser()
-    {
-        if (self::$loggedInUser == null &&  isset($_COOKIE['user'])) {
-          $model = new UsersModel();
-            $candidate = $model->findUser($_COOKIE['user']['login']);
-            if ($candidate != null && $candidate->isPassword($_COOKIE['user']['password'])) {
-                self::$loggedInUser = $candidate;
-            };
-        }
-        return self::$loggedInUser;
+  public function registration()
+  {
+    $this->data["slug"] = "user";
+
+    if (isset($_POST['login'])) {
+
+      $rules = [
+        'lastname'  =>  "required|max_length[150]",
+        'firstname' => "required|max_length[150]",
+        'address1'  => "required|max_length[150]",
+        'address2'  => 'max_length[150]',
+        'zipcode'   => "required|max_length[5]|numeric",
+        'city'      => "required|max_length[50]",
+        'email'     => [
+          'rules' => 'required|valid_email|is_unique[nes_ad_users.email]',
+          'errors' => [
+            "is_unique" => "Un compte utilisateur ayant cette adresse existe déjà.",
+            "valid_email" => "Le format de l'email est incorrect"
+          ]
+        ],
+        'phone'     => "required|numeric",
+        'password'  => "required",
+        'password2' => [
+          "rules"   =>   "required|matches[password]",
+          "errors"  => [
+            "matches" => "Les mots de passe ne correspondent pas"
+          ]
+        ],
+        'login' => [
+          "rules" => "required|is_unique[nes_ad_users.login]",
+          "errors" => [
+            "is_unique" => "Le nom d'utilisateur existe déjà, merci d'en choisir un autre"
+          ]
+        ]
+      ];
+
+
+      if ($this->validate($rules)) {
+
+      } else {
+        $this->data['validation'] = $this->validator;
+      };
     }
 
-    public static function setLoggedInUser($user, $plaintextPassword = null)
-    {
-        if ($user != null) {
-            self::$loggedInUser = $user;
-            setcookie("user[login]", $user->login, 2147483647, '/');
-            setcookie("user[password]", $plaintextPassword, 2147483647, '/');
-        }
-    }
-
+    $this->twig->display('users/registration', $this->data);
+  }
 }

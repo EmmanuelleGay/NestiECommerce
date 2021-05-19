@@ -46,6 +46,8 @@ $routes->add('panier','ShoppingCartController::validOrder');
 $routes->add('compte/(:num)','UsersController::oneUser/$1');
 $routes->add('connexion/','UsersController::login');
 $routes->add('deconnexion/','UsersController::logout');
+$routes->add('inscription/','UsersController::registration');
+
 
 $routes->get('/api', "ApiController::index");
 $routes->get('/api/recipes', "ApiController::recipes");

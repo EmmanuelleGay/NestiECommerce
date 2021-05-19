@@ -6,6 +6,7 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\UsersModel;
 
 /**
  * Class BaseController
@@ -27,8 +28,8 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ["form", "security", "date", "inflector"];
-
+	protected $helpers = ["form", "security", "date", "inflector", "translation", "url"];
+	protected static $loggedInUser;
 	/**
 	 * Constructor.
 	 *
@@ -42,8 +43,12 @@ class BaseController extends Controller
 
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
 	{
-		$this->data["loggedInUser"] = UsersController::getLoggedInUser();
-	
+		$this->data["loggedInUser"]= null;
+		if (isset($_COOKIE['user']['login'])){
+			$this->data["loggedInUser"] = BaseController::getLoggedInUser();
+		}
+		
+
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
 
@@ -51,9 +56,10 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
-	
-		$this->twig = new \Kenjis\CI4Twig\Twig();
-
+		$config = ["functions" => [
+			"translate"
+		]];
+		$this->twig = new \Kenjis\CI4Twig\Twig($config);
 	}
 
 	//fonction qui ajoute automatiquement le header et le footer de la page
@@ -70,5 +76,29 @@ class BaseController extends Controller
 		echo view('templates/header', $data);
 		echo view('' . $page, $data);
 		echo view('templates/footer', $data);
+	}
+
+	/**
+	 * Get the value of user
+	 */
+	public static function getLoggedInUser()
+	{
+		if (self::$loggedInUser == null &&  isset($_COOKIE['user'])) {
+			$model = new UsersModel();
+			$candidate = $model->findUser($_COOKIE['user']['login']);
+			if ($candidate != null && $candidate->isPassword($_COOKIE['user']['password'])) {
+				self::$loggedInUser = $candidate;
+			};
+		}
+		return self::$loggedInUser;
+	}
+
+	public static function setLoggedInUser($user, $plaintextPassword = null)
+	{
+		if ($user != null) {
+			self::$loggedInUser = $user;
+			setcookie("user[login]", $user->login, 2147483647, '/');
+			setcookie("user[password]", $plaintextPassword, 2147483647, '/');
+		}
 	}
 }

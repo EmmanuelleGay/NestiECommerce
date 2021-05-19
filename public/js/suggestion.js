@@ -98,7 +98,7 @@ function creationCard() {
                 fireCustomEvent('nopecard', {
                     origin: t,
                     container: t.parentNode,
-                    card: t.parentNode.querySelector('.card')
+                    card: t.parentNode.querySelector('.cardIngredient')
                 });
             }
             //when the user clicked the "yes" button 
@@ -108,7 +108,7 @@ function creationCard() {
                 fireCustomEvent('yepcard', {
                     origin: t,
                     container: t.parentNode,
-                    card: t.parentNode.querySelector('.card')
+                    card: t.parentNode.querySelector('.cardIngredient')
                 });
 
                 //add ingredient into recette list to propose 
@@ -155,7 +155,7 @@ function creationCard() {
         if (origin.classList.contains('list')) {
             if (ev.animationName === 'nope' || ev.animationName === 'yay') {
                 origin.querySelector('.current').remove();
-                if (!origin.querySelector('.card')) {
+                if (!origin.querySelector('.cardIngredient')) {
                     fireCustomEvent('deckempty', {
                         origin: origin.querySelector('button'),
                         container: origin,
@@ -163,7 +163,7 @@ function creationCard() {
                     });
 
                 } else {
-                    origin.querySelector('.card').classList.add('current');
+                    origin.querySelector('.cardIngredient').classList.add('current');
                 }
             }
         }
@@ -215,7 +215,6 @@ function checkRecipes() {
            
             }
 
-            counterRecipes = getCounterRecipe();
         }
     };
     xmlhttp.open("GET", "./js/recipes.json", true);

@@ -19,7 +19,7 @@
 
         <div class="row mt-3">
             {% for t in tags %}
-                <h3 class="col-12 text-center mb-2">{{ t.name }}</h3>
+                <h3 class="col-12 text-center mb-2">{{ translate(t.name,"Tag") }}</h3>
                 {% for is in t.getIsTagged(t.id) %}
                     {% for r in  is.getRecipes(is.idRecipe) %}
                         <div class=" col-md-3 col-xs-12 mb-3">
@@ -27,7 +27,7 @@
                                 {% if r.idImage is empty %}
                                     <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/noImage.jpg" alt="{{ r.name }}">
                                 {% else %}
-                                    <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/articles/{{ r.getImage(r.idImage).name }}.{{ r.getImage(r.idImage).fileExtension }}" alt="{{ r.name }}">
+                                    <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/recipes/{{ r.getImage().name }}.{{ r.getImage().fileExtension }}" alt="{{ r.name }}">
                                 {% endif %}
                                 <div class="card-body">
                                     <a href={{ base_url('recette')~'/'~ r.idRecipe}}  class="card-title text-center">{{ r.name }}</a>

@@ -1,0 +1,106 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}
+    S'inscrire
+{% endblock %}
+
+{% block body %}
+
+{% if validation.hasError('login') %}
+<div>{{validation.getError("login")}}</div>
+
+
+{% endif %}
+
+<div class="container-fluid">
+    <div class = "row mt-3">
+        <h1 class = "col-12 text-center text-primary">Inscription</h1>
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
+        
+            {{form_open(base_url('inscription'))}}
+
+              <div class="form-label-group">
+                <label for="lastname">Nom*</label>
+                <input type="text" id="lastname" class="form-control" name = "lastname" required autofocus>
+              </div>
+           
+              <div class="form-label-group mt-3">
+                <label for="firstname">Prénom*</label>
+                <input type="text" id="firstname"  name = "firstname" class="form-control" required>
+              </div>
+
+              
+              <div class="form-row mt-3">
+                <label for="login">Nom d'utilisateur*</label>
+                <input type="text" id="login"  name = "login" class="form-control {{validation.hasError('login') ? 'is-invalid':'is-valid'}}" required>
+                {% if validation.hasError('login') %}
+                <div class = "invalid-feedback">{{validation.getError("login")}} </div>
+                {% endif %}
+              </div>
+             
+              <div class="form-label-group mt-3">
+                <label for="address1">Adresse 1*</label>
+                <input type="text" id="address1"  name = "address1" class="form-control" required>
+              </div>
+          
+              <div class="form-label-group mt-3">
+                <label for="address2">Adresse 2*</label>
+                <input type="text" id="address2"  name = "address2" class="form-control">
+              </div>
+            
+              <div class="form-label-group mt-3">
+                <label for="zipcode">Code Postal*</label>
+                <input type="text" id="zipcode"  name = "zipcode" class="form-control" required>
+              </div>
+           
+              <div class="form-label-group mt-3">
+                <label for="city">Ville*</label>
+                <input type="text" id="city"  name = "city" class="form-control" required>
+              </div>
+             
+              <div class="form-label-group mt-3">
+                <label for="email">Email*</label>
+                <input type="email" id="email"  name = "email" class="form-control {{validation.hasError('email') ? 'is-invalid':'is-valid'}}" required>
+                {% if validation.hasError('email') %}
+                <div class = "invalid-feedback">{{validation.getError("email")}} </div>
+                {% endif %}
+              </div>
+
+              <div class="form-label-group mt-3">
+                <label for="phone">Téléphone</label>
+                <input type="phone" id="phone"  name = "phone" class="form-control">
+              </div>
+
+              <div class="form-label-group mt-3">
+                <label for="password">Mot de passe*</label>
+                <input type="password" id="password"  name = "password" class="form-control" required>
+                <div id="passwordStrenght"></div>
+              </div>
+
+              <div class="form-label-group mt-3">
+                <label for="password2">Vérification mot de passe*</label>
+                <input type="password" id="password2" name = "password2" class="form-control {{validation.hasError('password2') ? 'is-invalid':'is-valid'}}"  required>
+                {% if validation.hasError('password2') %}
+                <div class = "invalid-feedback">{{validation.getError("password2")}} </div>
+                {% endif %}
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-primary mt-5" type="submit">S'inscrire</button>
+              </div>
+
+              {{ validation.errors ? validation.errors.name }}
+              {{ form_close }}
+
+
+            <div class = "row mt-3">
+                <div class = "col-12">* Champs obligatoires</div>  
+            </div>
+      </div>
+    </div>
+
+
+{% endblock %}

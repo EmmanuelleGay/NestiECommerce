@@ -199,6 +199,8 @@ a:hover {
 }
 
  .cardIngredient {
+    /* width: 450px;
+    height: 300px; */
     margin-left: -105px;
     border-radius: 10px;
 } 

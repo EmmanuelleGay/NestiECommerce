@@ -9,13 +9,35 @@ namespace App\Tools;
  */
 class FormatUtil
 {
-    protected static $translations = [
-        'easy' => 'Facile',
-        'seasonal' => 'De saison',
-        'traditionnal' => 'Traditionnelle',
-        'glutenFree' => 'Sans gluten',
-    ];
 
+    const TRANSLATIONS = [
+        "default"=>[
+        ],
+        "Users"=>[
+            "administrator"=>"Administrateur",
+            "moderator"=>"Modérateur",
+            "chef"=>"Chef",
+            "a"=>"Actif",
+            "b"=>"Bloqué",
+            "w"=>"En attente",
+        ],
+        "Orders"=>[
+            "a"=>"Payée",
+            "b"=>"Annulée",
+            "w"=>"En attente",
+        ],
+        "Comment"=>[
+            "a"=>"Approuvé",
+            "b"=>"Bloqué",
+            "w"=>"En attente",
+        ],
+        "Tag"=>[
+            'easy' => 'Facile',
+            'seasonnal' => 'De saison',
+            'traditional' => 'Traditionnelle',
+            'glutenFree' => 'Sans gluten',
+        ]
+    ];
 
     /**
      * dump
@@ -29,8 +51,9 @@ class FormatUtil
         echo "<pre>" . htmlentities(print_r($var, true)) . "</pre>";
     }
 
-    public static function translate($english)
+    public static function translate($english, $dataset="default")
     {
-        return static::$translations[strtolower($english)];
+        return static::TRANSLATIONS[$dataset][$english];
+       
     }
 }
