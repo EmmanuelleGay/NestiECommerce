@@ -6,7 +6,7 @@ let minStrenght = 60;
 
 passwordInput.on("input",function(){
  
-    let percentWidth = calculatePasswordStrength(passwordInput.val()) * 0.5 / minStrenght * 100;
+    let percentWidth = calculatePasswordStrength(passwordInput.val()) * 0.9 / minStrenght * 100;
     if(percentWidth>100){
         percentWidth = 100;
     }
@@ -39,6 +39,5 @@ const calculatePasswordStrength = (password) => {
     }
     return password.length * Math.log(possibleChars)/Math.log(2);
 }
-
 
 })

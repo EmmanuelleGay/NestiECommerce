@@ -8,5 +8,5 @@ class ParagraphModel extends Model
 {
     protected $table = "nes_ad_paragraph"; 
     protected $returnType = 'App\Entities\Paragraph';
-
+    protected $primaryKey = 'idParagraph';
 }

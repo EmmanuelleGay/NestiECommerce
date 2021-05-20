@@ -6,8 +6,7 @@ use CodeIgniter\Model;
 
 class RecipeModel extends Model
 {
-    protected $table = "nes_ad_recipe"; // nom de la table
- //   protected $allowedFields = ['name'];  Nom des colonnes autorisées : mettre toutes les colonnes a enregistrer, insérer ou mise à jour
+    protected $table = "nes_ad_recipe"; 
     protected $returnType = 'App\Entities\Recipe'; // Type de retour
     // protected $useTimestamps = true; // Utilisation du timestamps : colonne created_at, updated_at
     protected $primaryKey = 'idRecipe';

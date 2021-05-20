@@ -43,9 +43,9 @@ $routes->add('article/(:num)','ArticleController::oneArticle/$1');
 
 $routes->add('panier','ShoppingCartController::validOrder');
 
-$routes->add('compte/(:num)','UsersController::oneUser/$1');
 $routes->add('connexion/','UsersController::login');
 $routes->add('deconnexion/','UsersController::logout');
+$routes->add('compte/(:num)','UsersController::registration/$1');
 $routes->add('inscription/','UsersController::registration');
 
 

@@ -3,11 +3,12 @@
 namespace App\Controllers;
 
 use App\Models\UsersModel;
+use App\Models\CityModel;
+use App\Entities\Users;
+use App\Entities\City;
 
 class UsersController extends BaseController
 {
-
-
 
   public function oneUser()
   {
@@ -30,23 +31,8 @@ class UsersController extends BaseController
 
       if ($candidate != null && $candidate->isPassword($plaintextPassword)) {
 
-        //   $data["login"] = $candidate->login;
-
-        // if(isset($_POST['User']['connectedChexbox'])){
-        //   setcookie("user[login]", $candidate->login, 2147483647, '/');
-        //   setcookie("user[password]", $plaintextPassword, 2147483647, '/');
-        // }
-
         BaseController::setLoggedInUser($candidate, $plaintextPassword);
 
-        //   $dataSession = array(
-        //     'username' => $candidate->login
-        //   );
-        //  $this->session->set_userdata($dataSession);
-        //   $this->twig->addGlobal("session",$candidate->login);
-
-
-        // $this->twig->display('recipe/oneRecipe',$data);
         return redirect()->to(base_url('home'));
         exit();
       } else {
@@ -66,49 +52,118 @@ class UsersController extends BaseController
     $this->twig->display('users/login', $this->data);
   }
 
-  public function registration()
+  public function registration($idUser = null)
   {
     $this->data["slug"] = "user";
 
+    $userModel = new UsersModel();
+    $user = $userModel->findUserById($idUser);
+
     if (isset($_POST['login'])) {
 
-      $rules = [
-        'lastname'  =>  "required|max_length[150]",
-        'firstname' => "required|max_length[150]",
-        'address1'  => "required|max_length[150]",
-        'address2'  => 'max_length[150]',
-        'zipcode'   => "required|max_length[5]|numeric",
-        'city'      => "required|max_length[50]",
-        'email'     => [
-          'rules' => 'required|valid_email|is_unique[nes_ad_users.email]',
-          'errors' => [
-            "is_unique" => "Un compte utilisateur ayant cette adresse existe déjà.",
-            "valid_email" => "Le format de l'email est incorrect"
+      if($user == null){
+        $rules = [
+          'lastname'  =>  "required|max_length[150]",
+          'firstname' => "required|max_length[150]",
+          'address1'  => "required|max_length[150]",
+          'address2'  => 'max_length[150]',
+          'zipcode'   => [
+            "rules" => "required|max_length[5]|numeric",
+            "errors" => [
+              "numeric" => "Le code postal est incorrect, veuillez vérifier votre saisie"
+            ]
+          ],
+          'city'      => "required|max_length[50]",
+          'email'     => [
+            'rules' => 'required|valid_email|is_unique[nes_ad_users.email]',
+            'errors' => [
+              "is_unique" => "Un compte utilisateur ayant cette adresse email existe déjà.",
+              "valid_email" => "Le format de l'email est incorrect"
+            ]
+          ],
+          'password'  => [
+            "rules" =>  "required|regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/]",
+            "errors" => [
+              "regex_match" => "Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre."
+            ]
+          ],
+          'password2' => [
+            "rules"   =>   "required|matches[password]",
+            "errors"  => [
+              "matches" => "Les mots de passe ne correspondent pas"
+            ]
+          ],
+          'login' => [
+            "rules" => "required|is_unique[nes_ad_users.login]|max_length[50]",
+            "errors" => [
+              "is_unique" => "Le nom d'utilisateur existe déjà, merci d'en choisir un autre"
+            ]
           ]
-        ],
-        'phone'     => "required|numeric",
-        'password'  => "required",
-        'password2' => [
-          "rules"   =>   "required|matches[password]",
-          "errors"  => [
-            "matches" => "Les mots de passe ne correspondent pas"
+        ];
+      }
+     
+      else {
+        $rules = [
+          'lastname'  =>  "required|max_length[150]",
+          'firstname' => "required|max_length[150]",
+          'address1'  => "required|max_length[150]",
+          'address2'  => 'max_length[150]',
+          'zipcode'   => [
+            "rules" => "required|max_length[5]|numeric",
+            "errors" => [
+              "numeric" => "Le code postal est incorrect, veuillez vérifier votre saisie"
+            ]
+          ],
+          'city'      => "required|max_length[50]",
+          'email'     => [
+            'rules' => 'required|valid_email',
+              "valid_email" => "Le format de l'email est incorrect"
+          ],
+          'login' => [
+            "rules" => "required|max_length[50]"
           ]
-        ],
-        'login' => [
-          "rules" => "required|is_unique[nes_ad_users.login]",
-          "errors" => [
-            "is_unique" => "Le nom d'utilisateur existe déjà, merci d'en choisir un autre"
-          ]
-        ]
-      ];
+        ];
+      }
+      
 
 
       if ($this->validate($rules)) {
 
+        if ($user == null) {
+          $user = new Users();
+          $user->setPasswordHashFromPlaintext($_POST["password"]);
+          $user->flag = "a";
+        }
+
+        $user->lastName = $_POST["lastname"];
+        $user->firstName = $_POST["firstname"];
+        $user->address1 = $_POST["address1"];
+        $user->address2 = $_POST["address2"];
+        $user->zipCode = $_POST["zipcode"];
+        $user->email = $_POST["email"];
+        $user->login =  $_POST["login"];
+
+        $citymodel = new CityModel();
+        $city = $citymodel->findCity($_POST["city"]);
+
+
+        if ($city == null) {
+          $city = new City();
+          $city->name = $_POST["city"];
+          $citymodel->save($city);
+          $user->idCity = $citymodel->insertID();
+        } else {
+          $user->idCity = $city->idCity;
+        }
+
+        $userModel->save($user);
+
+        $this->data['success'];
+        //  $this->data["user"] = $user;
+
       } else {
         $this->data['validation'] = $this->validator;
         $this->data["isSubmitted"] = true;
-      
       };
     }
 

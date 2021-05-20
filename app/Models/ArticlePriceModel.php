@@ -8,5 +8,5 @@ class ArticlePriceModel extends Model
 {
     protected $table = "nes_ad_articleprice"; 
     protected $returnType = 'App\Entities\ArticlePrice';
-
+    protected $primaryKey = 'idArticlePrice';
 }

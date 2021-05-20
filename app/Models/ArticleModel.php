@@ -8,7 +8,7 @@ class ArticleModel extends Model
 {
     protected $table = "nes_ad_article";
     protected $returnType = 'App\Entities\Article'; 
-
+    protected $primaryKey = 'idArticle';
 
     // public function getImage($idImage){
     //     $modelImage = new ImageModel();

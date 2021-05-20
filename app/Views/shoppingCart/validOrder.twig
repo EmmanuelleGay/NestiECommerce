@@ -6,4 +6,12 @@
 
 {% block body %}
     <p>PANIER</p>
+    <div id="ContainerShoppingCart"></div>
+
+<script>
+    $(() => {
+    var cartOrder = new ShoppingCart("#ContainerShoppingCart");
+    })
+</script>
+
 {% endblock %}

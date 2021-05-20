@@ -8,6 +8,6 @@ class ImageModel extends Model
 {
     protected $table = "nes_ad_image";
     protected $returnType = 'App\Entities\Image'; 
-
+    protected $primaryKey = 'idImage';
 
 }

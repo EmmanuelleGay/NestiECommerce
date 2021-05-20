@@ -18,7 +18,7 @@
             <div class="row mt-3">
                 {% for a in articles %}
                     <div class=" col-md-3 col-xs-12 mb-3">
-                        <div class="card">
+                        <div class="card article" data-id = "{{a.idArticle}}" data-name = "{{a.nameToDisplay}}" data-price = "{{a.getPrice(a.idArticle).price}}" >
                             {% if a.idImage is empty %}
                             <img class="card-img-top imageArticle" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/noImage.jpg" alt="{{ a.nameToDisplay }}">
                             {% else %}
@@ -28,12 +28,12 @@
                                     <p class="card-title text-center">{{ a.nameToDisplay }}</p>
                                     <p class="card-text text-center articlePrice">{{ a.getPrice(a.idArticle).price }} €</p>
                                     <div class="row justify-content-around">
-                                        <button class= "col-3 btn btn-light decrementArticle font-weight-bold">-</button>
-                                        <input type="number" class="col-3" placeholder="1" max="50" min="0">
-                                        <button class= "col-3 btn btn-light incrementArticle font-weight-bold">+</button>
+                                        <button class= "col-3 btn btn-light font-weight-bold decrementArticle" >-</button>
+                                        <input type="number" class="col-3 quantity" value="1" max="50" min="0" >
+                                        <button class= "col-3 btn btn-light font-weight-bold incrementArticle" >+</button>
                                     </div>
                                    <div class = "row mt-3 justify-content-center">
-                                    <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                                    <button class="btn btn-primary addToShoopingCart">Ajouter au panier</button>
                                    </div>
                                 </div>
                             </div>

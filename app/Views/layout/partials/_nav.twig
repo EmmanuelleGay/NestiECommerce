@@ -22,8 +22,9 @@
         <div>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item mx-3">
-                    <a class='text-nowrap nav-link border rounded-pill {{ slug=="shoppingCart" ? "active" : "" }}' href={{ base_url('panier') }}>
+                    <a id="linkShoppingCart" class='text-nowrap nav-link border rounded-pill {{ slug=="shoppingCart" ? "active" : "" }}' href={{ base_url('panier') }}>
                         <i class="fas fa-shopping-cart mx-2"></i>Mon panier</a>
+                        <div id = "quantityShoppingCart"></div>
                 </li>
                 <li class="nav-item mx-3">
                     {% if loggedInUser %}
@@ -38,8 +39,7 @@
                     {% if loggedInUser %}
                         <a class='text-nowrap nav-link active btn-info rounded' href={{ base_url('deconnexion') }}>
                             <i class="fas fa-sign-out-alt mx-2"></i>Déconnexion</a>
-                    {% endif %}
-                    {% if loggedInUser is empty %}
+                    {% else %}
                     <a class='text-nowrap nav-link active btn-info rounded' href={{ base_url('connexion') }}>
                         <i class="fas fa-sign-in-alt mx-2"></i></i>Connexion</a>
                     {% endif %}

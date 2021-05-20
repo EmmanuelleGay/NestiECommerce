@@ -8,5 +8,5 @@ class ConnectionLogModel extends Model
 {
     protected $table = "nes_ad_connectionlog"; 
     protected $returnType = 'App\Entities\Connectionlog';
-
+    protected $primaryKey = 'idConnectionLog';
 }

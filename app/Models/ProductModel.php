@@ -8,5 +8,5 @@ class ProductModel extends Model
 {
     protected $table = "nes_ad_product"; 
     protected $returnType = 'App\Entities\Product';
-
+    protected $primaryKey = 'idProduct';
 }

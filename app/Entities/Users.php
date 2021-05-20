@@ -10,4 +10,9 @@ class Users extends Entity
         return password_verify($plainTextPassword, $this->passwordHash);
     }
 
+    public function setPasswordHashFromPlaintext($plaintextPassword)
+    {
+        $this->passwordHash = password_hash($plaintextPassword, PASSWORD_DEFAULT);
+    }
+
 }
