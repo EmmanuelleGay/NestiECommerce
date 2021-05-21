@@ -4,9 +4,9 @@ namespace App\Entities;
 
 use App\Models\RecipeModel;
 use App\Models\TagModel;
-use CodeIgniter\Entity;
 
-class IsTagged extends Entity
+
+class IsTagged extends BaseEntity
 {
 
 

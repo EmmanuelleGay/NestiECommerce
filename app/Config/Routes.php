@@ -43,6 +43,7 @@ $routes->add('article/(:num)','ArticleController::oneArticle/$1');
 
 $routes->add('panier','OrderController::validOrder');
 $routes->add('saveOrder','OrderController::saveOrder');
+$routes->add('commande','OrderController::successPayment');
 
 $routes->add('connexion/','UsersController::login');
 $routes->add('deconnexion/','UsersController::logout');

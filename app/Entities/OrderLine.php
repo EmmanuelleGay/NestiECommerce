@@ -1,10 +1,8 @@
 <?php
 namespace App\Entities;
 
-use CodeIgniter\Entity;
 
-
-class OrderLine extends Entity
+class OrderLine extends BaseEntity
 {
 
 

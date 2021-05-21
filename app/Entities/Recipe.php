@@ -1,7 +1,6 @@
 <?php
 namespace App\Entities;
 
-use CodeIgniter\Entity;
 
 use App\Models\TagModel;
 use App\Models\ImageModel;
@@ -11,7 +10,7 @@ use App\Models\IngredientRecipeModel;
 use App\Models\CommentModel;
 
 
-class Recipe extends Entity
+class Recipe extends BaseEntity
 {
 
     public function getTag(){

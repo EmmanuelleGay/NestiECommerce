@@ -73,7 +73,7 @@ class ShoppingCart {
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-credit-card"></i></div>
                         </div>
-                        <input type="text" class="form-control" name="order[Cvv]" id="cvv" placeholder="Cvv">
+                        <input type="text" class="form-control" name="order[Cvv]" id="cvv" placeholder="Cvv" max-length="3">
                     </div>
                 </div>
             </div>
@@ -105,20 +105,35 @@ class ShoppingCart {
         let expirationDate = document.querySelector("#expirationCreditCard").value;
         let ccv = document.querySelector("#cvv").value;
 
-        $.post(vars.baseUrl + "/saveOrder", {
-            [vars.csrfName]: vars.csrfHash,
-            "creditCardNumber": creditCardNumber,
-            "expirationDate":expirationDate,
-            "ccv" : ccv,
-            "articles" : this.articles
 
-        }, (response) => {
-            //to do
-        });
+        if(validCreditCard(creditCardNumber)){
 
+            $.post(vars.baseUrl + "/saveOrder", {
+                [vars.csrfName]: vars.csrfHash,
+                "creditCardNumber": creditCardNumber,
+                "expirationDate": expirationDate,
+                "ccv": ccv,
+                "articles": this.articles
+    
+            }, (response) => { 
+                if(response == "success"){
+                    window.location.href = vars.baseUrl + "/commande"
+                }
+                console.log(response);
+
+            });
+
+
+
+        } else{
+            alert("Votre numéro de carte n'est pas valide, merci de vérifier votre saisie");
+        }
+
+   
 
 
     }
+
 
     addArticle(id, name, price, quantity) { // si l'article 'nexite pas
         if (!this.articles[id]) {
@@ -242,4 +257,30 @@ const orderLine = (id, name, price, quantity, shoppingCart) => {
     })
 
     return element;
+}
+
+// Takes a credit card string value and returns true on valid number
+function validCreditCard(value) { // Accept only digits, dashes or spaces
+    if (/[^0-9-\s]+/.test(value)) 
+        return false;
+    
+
+    // The Luhn Algorithm. It's so pretty.
+    let nCheck = 0,
+        bEven = false;
+    value = value.replace(/\D/g, "");
+
+    for (var n = value.length - 1; n >= 0; n--) {
+        var cDigit = value.charAt(n),
+            nDigit = parseInt(cDigit, 10);
+
+        if (bEven && (nDigit *= 2) > 9) {
+            nDigit -= 9;
+        }
+
+        nCheck += nDigit;
+        bEven = ! bEven;
+    }
+
+    return(nCheck % 10) == 0;
 }

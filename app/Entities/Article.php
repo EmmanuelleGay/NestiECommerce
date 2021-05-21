@@ -4,9 +4,9 @@ namespace App\Entities;
 
 use App\Models\ImageModel;
 use App\Models\ArticlePriceModel;
-use CodeIgniter\Entity;
 
-class Article extends Entity
+
+class Article extends BaseEntity
 {
 
     // public function getImage($idImage){

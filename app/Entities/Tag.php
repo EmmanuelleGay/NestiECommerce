@@ -2,8 +2,8 @@
 namespace App\Entities;
 
 use App\Models\IsTaggedModel;
-use CodeIgniter\Entity;
-class Tag extends Entity
+
+class Tag extends BaseEntity
 {
 
     public function getIsTagged($idTag)

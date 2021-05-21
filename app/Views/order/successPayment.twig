@@ -1,0 +1,25 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}
+    Commande validée
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="row my-3">
+            <div class="col">Votre commande a bien été enregistrée. Vous la recevrez d'ici quelques jours. Surveillez votre boite aux lettres...</div>
+            <div class ="col-12">Merci pour votre confiance et à bientôt!</div>
+        </div>
+
+
+        <div class = "row justify-content-center my-3">
+            <a href="{{base_url}}" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+      
+
+    </div>
+
+
+  
+{% endblock %}

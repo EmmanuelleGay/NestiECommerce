@@ -1,10 +1,9 @@
 <?php
 namespace App\Entities;
 
-use CodeIgniter\Entity;
 
 
-class Orders extends Entity
+class Orders extends BaseEntity
 {
 
 

@@ -1,10 +1,8 @@
 <?php
 namespace App\Entities;
 
-use CodeIgniter\Entity;
 
-
-class Comment extends Entity
+class Comment extends BaseEntity
 {
 
     public function setUser($user){

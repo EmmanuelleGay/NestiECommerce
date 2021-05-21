@@ -15,7 +15,7 @@ class Security extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $tokenName = 'csrf_TPTest';
+	public $tokenName = 'csrf_Nesti';
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -61,7 +61,7 @@ class Security extends BaseConfig
 	 *
 	 * @var boolean
 	 */
-	public $regenerate = true;
+	public $regenerate = false;
 
 	/**
 	 * --------------------------------------------------------------------------

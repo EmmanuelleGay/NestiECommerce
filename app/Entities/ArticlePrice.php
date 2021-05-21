@@ -2,9 +2,8 @@
 
 namespace App\Entities;
 
-use CodeIgniter\Entity;
 
-class ArticlePrice extends Entity
+class ArticlePrice extends BaseEntity
 {
 
 }

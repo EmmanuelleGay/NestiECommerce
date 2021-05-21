@@ -1,11 +1,11 @@
 <?php
 namespace App\Entities;
 
-use CodeIgniter\Entity;
+
 use App\Models\UnitModel;
 use App\Models\ProductModel;
 
-class IngredientRecipe extends Entity
+class IngredientRecipe extends BaseEntity
 {
 
     public function getUnit($idUnit){

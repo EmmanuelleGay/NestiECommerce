@@ -1,8 +1,8 @@
 <?php
 namespace App\Entities;
 
-use CodeIgniter\Entity;
-class Users extends Entity
+
+class Users extends BaseEntity
 {
 
     public function isPassword(String $plainTextPassword)
