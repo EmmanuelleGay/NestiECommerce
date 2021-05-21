@@ -31,6 +31,7 @@ $(() => {
         console.log(shoppingCart);
         //    console.log(quantityShoppingCart);
         quantityShoppingCart.html(shoppingCart.sumQuantity);
+       console.log(shoppingCart.price);
     };
 
 

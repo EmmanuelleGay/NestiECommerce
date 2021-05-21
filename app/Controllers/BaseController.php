@@ -28,7 +28,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ["form", "security", "date", "inflector", "translation", "url"];
+	protected $helpers = ["form", "security", "date", "inflector", "translation", "url", "format"];
 	protected static $loggedInUser;
 	/**
 	 * Constructor.
@@ -48,7 +48,10 @@ class BaseController extends Controller
 			$this->data["loggedInUser"] = BaseController::getLoggedInUser();
 		}
 		
-
+		$this->data["jsVars"] = [
+			"baseUrl" => base_url(),
+		];
+		
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
 
@@ -57,7 +60,7 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 		$config = ["functions" => [
-			"translate"
+			"translate",
 		]];
 		$this->twig = new \Kenjis\CI4Twig\Twig($config);
 	}

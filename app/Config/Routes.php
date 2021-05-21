@@ -41,7 +41,8 @@ $routes->add('recette/(:num)','RecipeController::oneRecipe/$1');
 $routes->add('article','ArticleController::list');
 $routes->add('article/(:num)','ArticleController::oneArticle/$1');
 
-$routes->add('panier','ShoppingCartController::validOrder');
+$routes->add('panier','OrderController::validOrder');
+$routes->add('saveOrder','OrderController::saveOrder');
 
 $routes->add('connexion/','UsersController::login');
 $routes->add('deconnexion/','UsersController::logout');
