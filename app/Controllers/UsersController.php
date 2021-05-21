@@ -88,16 +88,6 @@ class UsersController extends BaseController
 
         $userModel = new UsersModel();
         $user = BaseController::getLoggedInUser();
-        // $data = $this->request->getPost();
-
-        $user->fill($_POST);
-        // $user->lastName = $_POST["lastName"];
-        // $user->firstName = $_POST["firstname"];
-        // $user->address1 = $_POST["address1"];
-        // $user->address2 = $_POST["address2"];
-        // $user->zipCode = $_POST["zipcode"];
-        // $user->email = $_POST["email"];
-        // $user->login =  $_POST["login"];
 
         $citymodel = new CityModel();
         $city = $citymodel->findCity($_POST["city"]);
@@ -107,20 +97,14 @@ class UsersController extends BaseController
           $city->name = $_POST["city"];
           $citymodel->save($city);
           $user->idCity = $citymodel->insertID();
-        } else {
-          $user->idCity = $city->idCity;
-        }
+        } 
 
-      
-       //    $userModel->save($user);
            $data = $_POST;
            $data["idCity"] = $city->idCity;
            $userModel->update($user->idUsers,$data);
-        
-      
-
 
         $this->data['message'] = "success";
+        $this->data["loggedInUser"]= BaseController::getLoggedInUser(true);
 
       } else {
         $this->data['validation'] = $this->validator;

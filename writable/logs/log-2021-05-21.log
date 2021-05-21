@@ -937,3 +937,10 @@ CRITICAL - 2021-05-21 22:04:23 --> There is no data to update.
 #6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2021-05-21 22:22:04 --> Undefined variable $rules
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\UsersController.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 170)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\UsersController->registration()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
