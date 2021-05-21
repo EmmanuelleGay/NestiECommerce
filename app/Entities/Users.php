@@ -1,6 +1,7 @@
 <?php
 namespace App\Entities;
 
+use App\Models\CityModel;
 
 class Users extends BaseEntity
 {
@@ -15,4 +16,9 @@ class Users extends BaseEntity
         $this->passwordHash = password_hash($plaintextPassword, PASSWORD_DEFAULT);
     }
 
+
+    public function getCity(){
+        $cityModel = new CityModel();
+        return $cityModel->where("idCity", $this->idCity)->first();
+    }
 }

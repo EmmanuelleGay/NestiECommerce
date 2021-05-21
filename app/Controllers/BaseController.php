@@ -86,7 +86,7 @@ class BaseController extends Controller
 	 */
 	public static function getLoggedInUser()
 	{
-		if (self::$loggedInUser == null &&  isset($_COOKIE['user'])) {
+		if (self::$loggedInUser == null && isset($_COOKIE['user']['login']) && isset($_COOKIE['user']['password']) ) {
 			$model = new UsersModel();
 			$candidate = $model->findUser($_COOKIE['user']['login']);
 			if ($candidate != null && $candidate->isPassword($_COOKIE['user']['password'])) {

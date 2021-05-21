@@ -16,9 +16,4 @@ class UsersModel extends Model
        return $this->where("login", $login)->first();
     }
 
-    public function findUserById($idUser)
-    {
-       return $this->where("idUsers", $idUser)->first();
-    }
-
 }

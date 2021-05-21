@@ -10,11 +10,23 @@ use App\Entities\City;
 class UsersController extends BaseController
 {
 
-  public function oneUser()
-  {
-    $this->data["slug"] = "user";
-    $this->twig->display('users/oneUser', $this->data);
-  }
+
+
+  protected $rules = [
+    'lastName'  =>  "required|max_length[150]",
+    'firstName' => "required|max_length[150]",
+    'address1'  => "required|max_length[150]",
+    'address2'  => 'max_length[150]',
+    'zipCode'   => [
+      "rules" => "required|max_length[5]|numeric",
+      "errors" => [
+        "numeric" => "Le code postal est incorrect, veuillez vérifier votre saisie"
+      ]
+    ],
+    'city'      => "required|max_length[50]"
+  ];
+
+
 
 
   public function login()
@@ -52,19 +64,88 @@ class UsersController extends BaseController
     $this->twig->display('users/login', $this->data);
   }
 
-  public function registration($idUser = null)
+
+
+  public function oneUser()
+  {
+    $this->data["slug"] = "user";
+
+
+    if (isset($_POST['login'])) {
+  
+      
+        $this->rules ["email"] = [
+              'rules' => 'required|valid_email',
+                "valid_email" => "Le format de l'email est incorrect"
+        ];
+
+        $this->rules["login"] = [
+          "rules" => "required|max_length[50]"
+        ];
+
+
+      if ($this->validate($this->rules)) {
+
+        $userModel = new UsersModel();
+        $user = BaseController::getLoggedInUser();
+        // $data = $this->request->getPost();
+
+        $user->fill($_POST);
+        // $user->lastName = $_POST["lastName"];
+        // $user->firstName = $_POST["firstname"];
+        // $user->address1 = $_POST["address1"];
+        // $user->address2 = $_POST["address2"];
+        // $user->zipCode = $_POST["zipcode"];
+        // $user->email = $_POST["email"];
+        // $user->login =  $_POST["login"];
+
+        $citymodel = new CityModel();
+        $city = $citymodel->findCity($_POST["city"]);
+
+        if ($city == null) {
+          $city = new City();
+          $city->name = $_POST["city"];
+          $citymodel->save($city);
+          $user->idCity = $citymodel->insertID();
+        } else {
+          $user->idCity = $city->idCity;
+        }
+
+      
+       //    $userModel->save($user);
+           $data = $_POST;
+           $data["idCity"] = $city->idCity;
+           $userModel->update($user->idUsers,$data);
+        
+      
+
+
+        $this->data['message'] = "success";
+
+      } else {
+        $this->data['validation'] = $this->validator;
+        $this->data["isSubmitted"] = true;
+      };
+
+      }
+
+
+    $this->twig->display('users/oneUser', $this->data);
+  }
+
+
+
+  public function registration()
   {
     $this->data["slug"] = "user";
 
     $userModel = new UsersModel();
-    $user = $userModel->findUserById($idUser);
-
+  
     if (isset($_POST['login'])) {
 
-      if($user == null){
         $rules = [
-          'lastname'  =>  "required|max_length[150]",
-          'firstname' => "required|max_length[150]",
+          'lastName'  =>  "required|max_length[150]",
+          'firstName' => "required|max_length[150]",
           'address1'  => "required|max_length[150]",
           'address2'  => 'max_length[150]',
           'zipcode'   => [
@@ -102,39 +183,11 @@ class UsersController extends BaseController
         ];
       }
      
-      else {
-        $rules = [
-          'lastname'  =>  "required|max_length[150]",
-          'firstname' => "required|max_length[150]",
-          'address1'  => "required|max_length[150]",
-          'address2'  => 'max_length[150]',
-          'zipcode'   => [
-            "rules" => "required|max_length[5]|numeric",
-            "errors" => [
-              "numeric" => "Le code postal est incorrect, veuillez vérifier votre saisie"
-            ]
-          ],
-          'city'      => "required|max_length[50]",
-          'email'     => [
-            'rules' => 'required|valid_email',
-              "valid_email" => "Le format de l'email est incorrect"
-          ],
-          'login' => [
-            "rules" => "required|max_length[50]"
-          ]
-        ];
-      }
-      
-
-
       if ($this->validate($rules)) {
 
-        if ($user == null) {
-          $user = new Users();
-          $user->setPasswordHashFromPlaintext($_POST["password"]);
-          $user->flag = "a";
-        }
-
+        $user = new Users();
+        $user->setPasswordHashFromPlaintext($_POST["password"]);
+        $user->flag = "a";
         $user->lastName = $_POST["lastname"];
         $user->firstName = $_POST["firstname"];
         $user->address1 = $_POST["address1"];
@@ -158,15 +211,14 @@ class UsersController extends BaseController
 
         $userModel->save($user);
 
-        $this->data['success'];
-        //  $this->data["user"] = $user;
+        $this->data['message'] = "success";
 
       } else {
         $this->data['validation'] = $this->validator;
         $this->data["isSubmitted"] = true;
       };
-    }
-
+    
     $this->twig->display('users/registration', $this->data);
+
   }
 }

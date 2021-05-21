@@ -1,0 +1,96 @@
+{% extends "layout/base.twig" %}
+
+{% block title %}
+    S'inscrire
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+    <div class = "row mt-3">
+        <h1 class = "col-12 text-center text-primary">Inscription</h1>
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
+     
+       
+            {{form_open(base_url('inscription'),  {"class" : isSubmitted ? "" :'no-validate'} )}}
+
+              <div class="form-label-group">
+                <label for="lastname">Nom*</label>
+                <input type="text" id="lastname" class="form-control" name = "lastname" maxlength="150" required autofocus value = "{{loggedInUser is empty ?  set_value('lastname') : loggedInUser.lastName }}">
+              </div>
+           
+              <div class="form-label-group mt-3">
+                <label for="firstname">Prénom*</label>
+                <input type="text" id="firstname"  name = "firstname" class="form-control" maxlength="150" required value = "{{ loggedInUser is empty ? set_value('firstname') : loggedInUser.firstName }}" >
+              </div>
+
+              
+              <div class="form-row mt-3">
+                <label for="login">Nom d'utilisateur*</label>
+                <input type="text" id="login"  name = "login" maxlength="50" class="form-control {{validation.hasError('login') ? 'is-invalid':'is-valid'}}" required value = "{{loggedInUser is empty ? set_value('login') : loggedInUser.login }}">
+                {% if validation.hasError('login') %}
+                <div class = "invalid-feedback">{{validation.getError("login")}} </div>
+                {% endif %}
+              </div>
+             
+              <div class="form-label-group mt-3">
+                <label for="address1">Adresse 1*</label>
+                <input type="text" id="address1"  name = "address1" class="form-control" required value = "{{loggedInUser is empty ? set_value('address1') : loggedInUser.address1 }}">
+              </div>
+          
+              <div class="form-label-group mt-3">
+                <label for="address2">Adresse 2*</label>
+                <input type="text" id="address2"  name = "address2" class="form-control" value = "{{loggedInUser is empty ? set_value('address2') : loggedInUser.address2 }}">
+              </div>
+            
+              <div class="form-label-group mt-3">
+                <label for="zipcode">Code Postal*</label>
+                <input type="text" id="zipcode"  name = "zipcode" maxlength="5" minlength="5" class="form-control {{validation.hasError('zipcode') ? 'is-invalid':'is-valid'}}" required value = "{{loggedInUser is empty ? set_value('zipcode') : loggedInUser.zipcode  }}">
+                {% if validation.hasError('zipcode') %}
+                <div class = "invalid-feedback">{{validation.getError("zipcode")}} </div>
+                {% endif %}
+              </div>
+           
+              <div class="form-label-group mt-3">
+                <label for="city">Ville*</label>
+                <input type="text" id="city"  name = "city" class="form-control" required value = "{{loggedInUser is empty ? set_value('city') : loggedInUser.city  }}">
+              </div>
+             
+              <div class="form-label-group mt-3">
+                <label for="email">Email*</label>
+                <input type="email" id="email"  name = "email" maxlength="50" class="form-control {{validation.hasError('email') ? 'is-invalid':'is-valid'}}" required value = "{{loggedInUser is empty ? set_value('email') : loggedInUser.email }}">
+                {% if validation.hasError('email') %}
+                <div class = "invalid-feedback">{{validation.getError("email")}} </div>
+                {% endif %}
+              </div>
+
+              {% if loggedInUser is empty %}
+              <div class="form-label-group mt-3">
+                <label for="password">Mot de passe*</label>
+                <input type="password" id="password"  name = "password" class="form-control {{validation.hasError('password') ? 'is-invalid':'is-valid'}}" required value = {{set_value('password')}}>
+                {% if validation.hasError('password') %}
+                <div class = "invalid-feedback">{{validation.getError("password")}} </div>
+                {% endif %}
+                <div id="passwordStrenght"></div>
+              </div>
+
+              <div class="form-label-group mt-3">
+                <label for="password2">Vérification mot de passe*</label>
+                <input type="password" id="password2" name = "password2" class="form-control {{validation.hasError('password2') ? 'is-invalid':'is-valid'}}"  required value = {{set_value('password2')}}>
+                {% if validation.hasError('password2') %}
+                <div class = "invalid-feedback">{{validation.getError("password2")}} </div>
+                {% endif %}
+              </div>
+              {% endif %}
+
+            
+
+
+
+
+
+{% endblock %}

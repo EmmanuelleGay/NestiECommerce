@@ -123,14 +123,9 @@ class ShoppingCart {
 
             });
 
-
-
         } else{
             alert("Votre numéro de carte n'est pas valide, merci de vérifier votre saisie");
         }
-
-   
-
 
     }
 
@@ -265,7 +260,7 @@ function validCreditCard(value) { // Accept only digits, dashes or spaces
         return false;
     
 
-    // The Luhn Algorithm. It's so pretty.
+    // The Luhn Algorithm.
     let nCheck = 0,
         bEven = false;
     value = value.replace(/\D/g, "");

@@ -1,9 +1,29 @@
-{% extends "layout/base.twig" %}
+{% extends "users/templateUserForm.twig" %}
 
 {% block title %}
     Mon compte
 {% endblock %}
 
-{% block body %}
-    <p>Compte de Jean Bon</p>
-{% endblock %}
+
+{% block formTitle %}Mon compte {% endblock %}
+       
+
+{% block formStart %}
+{{form_open(base_url('compte')~'/'~ loggedInUser.idUsers,  {"class" : isSubmitted ? "" :'no-validate'} )}}
+
+ {% endblock %} 
+
+
+
+ {% block lastName %}{{loggedInUser.lastName}}{% endblock %}
+ {% block firstName %}{{loggedInUser.firstName}}{% endblock %}
+ {% block login %}{{loggedInUser.login}}{% endblock %}
+ {% block address1 %}{{loggedInUser.address1}}{% endblock %}
+ {% block address2 %}{{loggedInUser.address2}}{% endblock %}
+ {% block zipCode %}{{loggedInUser.zipCode}}{% endblock %}
+ {% block city %}{{loggedInUser.getCity.name}}{% endblock %}
+ {% block email %}{{loggedInUser.email}}{% endblock %}
+
+
+
+ {% block submitButtonText %}Mettre à jour ses informations{% endblock %}

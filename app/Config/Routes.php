@@ -47,7 +47,7 @@ $routes->add('commande','OrderController::successPayment');
 
 $routes->add('connexion/','UsersController::login');
 $routes->add('deconnexion/','UsersController::logout');
-$routes->add('compte/(:num)','UsersController::registration/$1');
+$routes->add('compte/(:num)','UsersController::oneUser/$1');
 $routes->add('inscription/','UsersController::registration');
 
 
