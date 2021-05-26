@@ -56,4 +56,9 @@ class FormatUtil
         return static::TRANSLATIONS[$dataset][$english];
        
     }
+
+    public static function combineRules($rules1, $rules2){
+        $validation =  \Config\Services::validation();
+		return array_merge($validation->getRuleGroup($rules1),$validation->getRuleGroup($rules2));
+	}
 }

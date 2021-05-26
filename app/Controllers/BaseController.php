@@ -65,21 +65,21 @@ class BaseController extends Controller
 		$this->twig = new \Kenjis\CI4Twig\Twig($config);
 	}
 
-	//fonction qui ajoute automatiquement le header et le footer de la page
-	public function renderTemplate(string $page = 'home', array $data = [])
-	{
-		if (!is_file(APPPATH . '/Views/' . $page . '.php')) {
-			// Whoops, we don't have a page for that!
-			throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
-		}
-		$i = strrpos($page, "/");
-		$title = str_replace('-', ' ', substr($page, $i + 1));
-		$data['title'] = ucwords($title);
-		//on ne met pas le .php, ca sera ajouté en auto
-		echo view('templates/header', $data);
-		echo view('' . $page, $data);
-		echo view('templates/footer', $data);
-	}
+	// //fonction qui ajoute automatiquement le header et le footer de la page
+	// public function renderTemplate(string $page = 'home', array $data = [])
+	// {
+	// 	if (!is_file(APPPATH . '/Views/' . $page . '.php')) {
+	// 		// Whoops, we don't have a page for that!
+	// 		throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
+	// 	}
+	// 	$i = strrpos($page, "/");
+	// 	$title = str_replace('-', ' ', substr($page, $i + 1));
+	// 	$data['title'] = ucwords($title);
+	// 	//on ne met pas le .php, ca sera ajouté en auto
+	// 	echo view('templates/header', $data);
+	// 	echo view('' . $page, $data);
+	// 	echo view('templates/footer', $data);
+	// }
 
 	/**
 	 * Get the value of user

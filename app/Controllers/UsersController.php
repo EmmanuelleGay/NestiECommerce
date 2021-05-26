@@ -6,28 +6,10 @@ use App\Models\UsersModel;
 use App\Models\CityModel;
 use App\Entities\Users;
 use App\Entities\City;
+use App\Tools\FormatUtil;
 
 class UsersController extends BaseController
 {
-
-
-
-  protected $rules = [
-    'lastName'  =>  "required|max_length[150]",
-    'firstName' => "required|max_length[150]",
-    'address1'  => "required|max_length[150]",
-    'address2'  => 'max_length[150]',
-    'zipCode'   => [
-      "rules" => "required|max_length[5]|numeric",
-      "errors" => [
-        "numeric" => "Le code postal est incorrect, veuillez vérifier votre saisie"
-      ]
-    ],
-    'city'      => "required|max_length[50]"
-  ];
-
-
-
 
   public function login()
   {
@@ -70,21 +52,11 @@ class UsersController extends BaseController
   {
     $this->data["slug"] = "user";
 
-
     if (isset($_POST['login'])) {
-  
-      
-        $this->rules ["email"] = [
-              'rules' => 'required|valid_email',
-                "valid_email" => "Le format de l'email est incorrect"
-        ];
 
-        $this->rules["login"] = [
-          "rules" => "required|max_length[50]"
-        ];
+      $userRules = FormatUtil::combineRules("userRules", "userRulesSignUp");
 
-
-      if ($this->validate($this->rules)) {
+      if ($this->validate($userRules)) {
 
         $userModel = new UsersModel();
         $user = BaseController::getLoggedInUser();
@@ -97,22 +69,19 @@ class UsersController extends BaseController
           $city->name = $_POST["city"];
           $citymodel->save($city);
           $user->idCity = $citymodel->insertID();
-        } 
+        }
 
-           $data = $_POST;
-           $data["idCity"] = $city->idCity;
-           $userModel->update($user->idUsers,$data);
+        $data = $_POST;
+        $data["idCity"] = $city->idCity;
+        $userModel->update($user->idUsers, $data);
 
         $this->data['message'] = "success";
-        $this->data["loggedInUser"]= BaseController::getLoggedInUser(true);
-
+        $this->data["loggedInUser"] = BaseController::getLoggedInUser(true);
       } else {
         $this->data['validation'] = $this->validator;
         $this->data["isSubmitted"] = true;
       };
-
-      }
-
+    }
 
     $this->twig->display('users/oneUser', $this->data);
   }
@@ -124,66 +93,27 @@ class UsersController extends BaseController
     $this->data["slug"] = "user";
 
     $userModel = new UsersModel();
-  
+
     if (isset($_POST['login'])) {
 
-        $rules = [
-          'lastName'  =>  "required|max_length[150]",
-          'firstName' => "required|max_length[150]",
-          'address1'  => "required|max_length[150]",
-          'address2'  => 'max_length[150]',
-          'zipcode'   => [
-            "rules" => "required|max_length[5]|numeric",
-            "errors" => [
-              "numeric" => "Le code postal est incorrect, veuillez vérifier votre saisie"
-            ]
-          ],
-          'city'      => "required|max_length[50]",
-          'email'     => [
-            'rules' => 'required|valid_email|is_unique[nes_ad_users.email]',
-            'errors' => [
-              "is_unique" => "Un compte utilisateur ayant cette adresse email existe déjà.",
-              "valid_email" => "Le format de l'email est incorrect"
-            ]
-          ],
-          'password'  => [
-            "rules" =>  "required|regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/]",
-            "errors" => [
-              "regex_match" => "Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre."
-            ]
-          ],
-          'password2' => [
-            "rules"   =>   "required|matches[password]",
-            "errors"  => [
-              "matches" => "Les mots de passe ne correspondent pas"
-            ]
-          ],
-          'login' => [
-            "rules" => "required|is_unique[nes_ad_users.login]|max_length[50]",
-            "errors" => [
-              "is_unique" => "Le nom d'utilisateur existe déjà, merci d'en choisir un autre"
-            ]
-          ]
-        ];
-      }
-     
-      if ($this->validate($rules)) {
+      $userRules = FormatUtil::combineRules("userRules", "userRulesRegistration");
+
+      if ($this->validate($userRules)) {
 
         $user = new Users();
         $user->setPasswordHashFromPlaintext($_POST["password"]);
         $user->flag = "a";
-        $user->lastName = $_POST["lastname"];
-        $user->firstName = $_POST["firstname"];
+        $user->lastName = $_POST["lastName"];
+        $user->firstName = $_POST["firstName"];
         $user->address1 = $_POST["address1"];
         $user->address2 = $_POST["address2"];
-        $user->zipCode = $_POST["zipcode"];
+        $user->zipCode = $_POST["zipCode"];
         $user->email = $_POST["email"];
         $user->login =  $_POST["login"];
-
+  
         $citymodel = new CityModel();
         $city = $citymodel->findCity($_POST["city"]);
-
-
+  
         if ($city == null) {
           $city = new City();
           $city->name = $_POST["city"];
@@ -192,17 +122,18 @@ class UsersController extends BaseController
         } else {
           $user->idCity = $city->idCity;
         }
-
+  
         $userModel->save($user);
-
+  
         $this->data['message'] = "success";
-
       } else {
         $this->data['validation'] = $this->validator;
         $this->data["isSubmitted"] = true;
       };
-    
-    $this->twig->display('users/registration', $this->data);
+  
+    }
 
+   
+    $this->twig->display('users/registration', $this->data);
   }
 }
