@@ -52,3 +52,128 @@ CRITICAL - 2021-05-26 16:05:18 --> Undefined variable $userRules
 #3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2021-05-26 16:56:43 --> Uncaught CodeIgniter\Exceptions\PageNotFoundException: Controller or its method is not found: \App\Controllers\List::index in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php:896
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(896): CodeIgniter\Exceptions\PageNotFoundException::forControllerNotFound('\\App\\Controller...', 'index')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 16:56:51 --> Uncaught CodeIgniter\Exceptions\PageNotFoundException: Controller or its method is not found: \App\Controllers\List::index in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php:896
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(896): CodeIgniter\Exceptions\PageNotFoundException::forControllerNotFound('\\App\\Controller...', 'index')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:16:45 --> Undefined variable $config
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\RecipeController.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 12)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(294): include_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(894): class_exists('\\App\\Controller...', true)
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2021-05-26 22:29:18 --> Uncaught ErrorException: Undefined variable $_SESSION in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:10
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 10)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:32:50 --> Uncaught CodeIgniter\Exceptions\PageNotFoundException: Controller or its method is not found: \App\Controllers\Js::home.js in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php:896
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(896): CodeIgniter\Exceptions\PageNotFoundException::forControllerNotFound('\\App\\Controller...', 'home.js')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:38:23 --> Uncaught ErrorException: Undefined array key 0 in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:18
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 18)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 22:41:36 --> Undefined array key 0
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 18)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-26 22:56:40 --> Uncaught ErrorException: Undefined array key 0 in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:21
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 21)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 23:09:55 --> Uncaught TypeError: arsort(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:14
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(14): arsort(NULL)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 23:10:39 --> Uncaught ErrorException: Undefined array key 0 in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:23
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 23:16:21 --> Uncaught ErrorException: Undefined array key 0 in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:23
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-26 23:30:27 --> Uncaught TypeError: arsort(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php:19
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(19): arsort(NULL)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

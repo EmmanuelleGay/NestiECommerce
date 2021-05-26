@@ -35,4 +35,6 @@ class Article extends BaseEntity
         $imageModel = new ImageModel();
         return $imageModel->where("idImage", $idImage)->first();
     }
+
+
 }

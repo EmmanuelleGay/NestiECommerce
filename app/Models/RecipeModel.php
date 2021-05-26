@@ -43,4 +43,8 @@ public function countComment($idRecipe){
   return $builder->get()->getResult();
 }
 
+public function searchRecipe($name)
+{
+  return $this->like("name", $name)->findAll();
+}
 }

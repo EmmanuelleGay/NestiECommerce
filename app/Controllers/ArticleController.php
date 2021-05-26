@@ -11,12 +11,17 @@ class ArticleController extends BaseController
 	{
 		$this->data["slug"] = "article";
 
-		$articleModel = new ArticleModel();
-		$articles = $articleModel->findAll();
-
-		$this->data["articles"] = $articles;
-	
-		$this->twig->display('article/list',$this->data);
+		if (isset($_POST['article']['search'])) {
+			$articleModel = new ArticleModel();
+			$articles = $articleModel->searchArticle($_POST['article']['search']);
+			$this->data["articles"] = $articles;
+		}
+		else {
+			$articleModel = new ArticleModel();
+			$articles = $articleModel->findAll();
+			$this->data["articles"] = $articles;
+		}
+		$this->twig->display('article/list', $this->data);
 	}
 
 	public function oneArticle()

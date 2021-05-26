@@ -10,10 +10,17 @@
     <div class="container mt-3">
 
         <div class="row">
+            {{form_open(base_url('recette'),"class = w-100") }}
             <div class="col-sm-8 col-md-4 d-flex">
-                <input type="text" class="form-control search-bar" aria-label="searchbar" aria-describedby="searchbar" name="" placeholder="Recette">
-                <i class="fas fa-search fa-2x ml-2"></i>
+
+                    <input type="text" class="form-control search-bar mr-3" name="recipe[search]" placeholder="Recette" value = {{set_value('recipe[search]')}}>
+                    <button type="submit" class = "btn btn-info "><i class="fas fa-search"></i></button>
+
+                {{ validation.errors ? validation.errors.name }}
+                {{ form_close }}
+
             </div>
+
                 
         </div>
 
@@ -36,6 +43,23 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div>
+            {% for r in recipes %}
+            <div class=" col-md-3 col-xs-12 mb-3">
+                <div class="card">
+                    {% if r.idImage is empty %}
+                        <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/noImage.jpg" alt="{{ r.name }}">
+                    {% else %}
+                        <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/recipes/{{ r.getImage().name }}.{{ r.getImage().fileExtension }}" alt="{{ r.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <a href={{ base_url('recette')~'/'~ r.idRecipe}}  class="card-title text-center">{{ r.name }}</a>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </div>
 

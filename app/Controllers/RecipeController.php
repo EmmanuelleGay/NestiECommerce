@@ -9,27 +9,25 @@ use App\Entities\Grades;
 use App\Models\CommentModel;
 use App\Entities\Comment;
 
+$session = \Config\Services::session();
+
 class Recipecontroller extends BaseController
 {
 	public function list()
 	{
 		$this->data["slug"] = "recipe";
 
-		$tagModel = new TagModel();
-		$tags = $tagModel->findAll();
 
-
-		// $data["tags"] = $tags;
-
-		// $recipeModel = new RecipeModel();
-		// $recipes = $recipeModel->findAllForApi();
-		// $data["recipes"] = $recipes;
-
-		// $model = new IsTaggedModel();
-		// $isTagged = $model->findAll();
-
-		$this->data["tags"] = $tags;
-
+		if (isset($_POST['recipe']['search'])) {
+			$recipeModel = new RecipeModel();
+			$recipes = $recipeModel->searchRecipe($_POST['recipe']['search']);
+			$this->data["recipes"] = $recipes;
+		} else {
+			$tagModel = new TagModel();
+			$tags = $tagModel->findAll();
+			$this->data["tags"] = $tags;
+		}
+	
 		$this->twig->display("recipe/list", $this->data);
 	}
 
@@ -85,10 +83,8 @@ class Recipecontroller extends BaseController
 			}
 		}
 
-
-
-
-		
+		$_SESSION['visitedRecipe']["test"] = date("Y-m-d H:i:s") ;
+	
 		$this->twig->display('recipe/oneRecipe', $this->data);
 	}
 }

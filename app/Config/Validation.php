@@ -43,7 +43,7 @@ class Validation
 	//--------------------------------------------------------------------
 
 	public $userRules = [
-		'lastName'  =>  "required|max_length[150]",
+		'lastName'  => "required|max_length[150]",
 		'firstName' => "required|max_length[150]",
 		'address1'  => "required|max_length[150]",
 		'address2'  => 'max_length[150]',

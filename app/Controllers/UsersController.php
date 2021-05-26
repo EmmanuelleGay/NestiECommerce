@@ -40,12 +40,12 @@ class UsersController extends BaseController
   public function logout()
   {
     BaseController::setLoggedInUser(null);
+    $this->data["loggedInUser"]= null;
     $this->data["message"] = "logout";
     setcookie("user[login]", null, 2147483647, '/');
     setcookie("user[password]", null, 2147483647, '/');
     $this->twig->display('users/login', $this->data);
   }
-
 
 
   public function oneUser()
