@@ -1,0 +1,36 @@
+CRITICAL - 2021-05-27 08:21:42 --> Uncaught CodeIgniter\Exceptions\PageNotFoundException: Controller or its method is not found: \App\Controllers\Js::home.js in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php:896
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(896): CodeIgniter\Exceptions\PageNotFoundException::forControllerNotFound('\\App\\Controller...', 'home.js')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2021-05-27 08:26:01 --> arsort(): Argument #1 ($array) must be of type array, null given
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(19): arsort(NULL)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2021-05-27 08:27:50 --> Unexpected "endblock" tag (expecting closing tag for the "if" tag defined near line 37).
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\TokenParser\IfTokenParser.php(41): Twig\Parser->subparse(Array)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(171): Twig\TokenParser\IfTokenParser->parse(Object(Twig\Token))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\TokenParser\BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(171): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(84): Twig\Parser->subparse(NULL, false)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(479): Twig\Parser->parse(Object(Twig\TokenStream))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(507): Twig\Environment->parse(Object(Twig\TokenStream))
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(348): Twig\Environment->compileSource(Object(Twig\Source))
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->loadTemplate('__TwigTemplate_...', 'home.twig')
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(277): Twig\Environment->load('home.twig')
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(177): Twig\Environment->render('home.twig', Array)
+#11 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(156): Kenjis\CI4Twig\Twig->render('home.twig', Array)
+#12 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\Home.php(33): Kenjis\CI4Twig\Twig->display('home', Array)
+#13 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\Home->index()
+#14 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#15 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#17 {main}

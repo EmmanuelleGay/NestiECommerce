@@ -15,10 +15,10 @@ class Home extends BaseController
 		if (!isset($_SESSION['visitedRecipe'])) {
 			$_SESSION['visitedRecipe'] = [];
 		}
-
+	
 		arsort($_SESSION['visitedRecipe']);
 
-		$lastPage = array_slice($_SESSION['visitedRecipe'], 0, 5,true);
+		$lastPage = array_slice($_SESSION['visitedRecipe'], 0, 4,true);
 
 		$recipeModel = new RecipeModel();
 

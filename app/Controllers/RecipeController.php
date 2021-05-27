@@ -83,7 +83,7 @@ class Recipecontroller extends BaseController
 			}
 		}
 
-		$_SESSION['visitedRecipe']["test"] = date("Y-m-d H:i:s") ;
+		$_SESSION['visitedRecipe'][$idRecipe] = date("Y-m-d H:i:s") ;
 	
 		$this->twig->display('recipe/oneRecipe', $this->data);
 	}

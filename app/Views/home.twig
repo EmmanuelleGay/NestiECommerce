@@ -33,6 +33,7 @@
 
     </div>
 
+    {% if recipes is not empty %}
     <div class="container">
         <div class="row">
             <div class="col">
@@ -40,49 +41,24 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class=" col-4">
+        <div  class="row mt-3">
+            {% for r in recipes %}
+            <div class=" col-md-3 col-xs-12 mb-3">
                 <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
+                    {% if r.idImage is empty %}
+                        <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/noImage.jpg" alt="{{ r.name }}">
+                    {% else %}
+                        <img class="card-img-top imageRecipe" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/recipes/{{ r.getImage().name }}.{{ r.getImage().fileExtension }}" alt="{{ r.name }}">
+                    {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href={{ base_url('recette')~'/'~ r.idRecipe}}  class="card-title text-center">{{ r.name }}</a>
                     </div>
                 </div>
             </div>
-            <div class=" col-4">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class=" col-4">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class=" col-4">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
+    {% endif %}
 
 
     <script src="{{ base_url("js/suggestion.js") }}"></script>
