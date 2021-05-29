@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('test', 'Home::test');
 
-$routes->add('recette','RecipeController::list');
+$routes->add('/recette','RecipeController::list');
 $routes->add('recette/(:num)','RecipeController::oneRecipe/$1');
 
 $routes->add('article','ArticleController::list');

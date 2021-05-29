@@ -29,9 +29,9 @@ class ApiController extends BaseController
     public function recipesIngredients($idRecipe)
     {
         $model = new RecipeModel();
-        $ingredient = $model->findIngredientsForApi($idRecipe);
+        $ingredients = $model->findIngredientsForApi($idRecipe);
         header('Content-Type: application/json');
-        echo json_encode($ingredient);
+        echo json_encode($ingredients);
         die;
     }
 

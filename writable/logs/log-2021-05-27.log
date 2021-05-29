@@ -34,3 +34,41 @@ CRITICAL - 2021-05-27 08:27:50 --> Unexpected "endblock" tag (expecting closing 
 #15 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #16 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
 #17 {main}
+CRITICAL - 2021-05-27 09:01:44 --> Unexpected "endblock" tag (expecting closing tag for the "if" tag defined near line 12).
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\TokenParser\IfTokenParser.php(50): Twig\Parser->subparse(Array)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(171): Twig\TokenParser\IfTokenParser->parse(Object(Twig\Token))
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\TokenParser\BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(171): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Parser.php(84): Twig\Parser->subparse(NULL, false)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(479): Twig\Parser->parse(Object(Twig\TokenStream))
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(507): Twig\Environment->parse(Object(Twig\TokenStream))
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(348): Twig\Environment->compileSource(Object(Twig\Source))
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(309): Twig\Environment->loadTemplate('__TwigTemplate_...', 'order/validOrde...')
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\twig\twig\src\Environment.php(277): Twig\Environment->load('order/validOrde...')
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(177): Twig\Environment->render('order/validOrde...', Array)
+#11 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\kenjis\codeigniter-ss-twig\src\CI4Twig\Twig.php(156): Kenjis\CI4Twig\Twig->render('order/validOrde...', Array)
+#12 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\OrderController.php(23): Kenjis\CI4Twig\Twig->display('order/validOrde...', Array)
+#13 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\OrderController->validOrder()
+#14 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\OrderController))
+#15 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#16 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#17 {main}
+CRITICAL - 2021-05-27 14:55:10 --> Uncaught mysqli_sql_exception: Access denied for user 'c29gay'@'localhost' (using password: YES) in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:161
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(161): mysqli->real_connect('localhost', 'c29gay', 'sdfuu56R', 'c29gay', 3306, '', 0)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(349): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(618): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Model.php(247): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\BaseModel.php(624): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Models\UsersModel.php(16): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(80): App\Models\UsersModel->findUser('jean')
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\BaseController.php(48): App\Controllers\BaseController::getLoggedInUser()
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(910): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#10 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(423): CodeIgniter\CodeIgniter->createController()
+#11 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#13 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

@@ -28,14 +28,9 @@ $(() => {
     // };
 
     const updateCartTotal = () => {
-        console.log(shoppingCart);
-        //    console.log(quantityShoppingCart);
         quantityShoppingCart.html(shoppingCart.sumQuantity);
-       console.log(shoppingCart.price);
     };
 
-
-  //  updateCartTotal();
 
     const updateArticleCard = (cardArticle, quantityChange) => {
         let quantityContainer = cardArticle.find(".quantity");

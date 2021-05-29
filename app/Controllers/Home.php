@@ -23,8 +23,8 @@ class Home extends BaseController
 		$recipeModel = new RecipeModel();
 
 		if (isset($_SESSION['visitedRecipe'])) {
-			foreach($lastPage as $values => $key){
-				$recipe =	$recipeModel->find($values);
+			foreach($lastPage as $key => $values){
+				$recipe =	$recipeModel->find($key);
 				$this->data['recipes'][] = $recipe;
 			}
 		}

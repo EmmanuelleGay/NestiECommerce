@@ -18,7 +18,7 @@ class ArticleController extends BaseController
 		}
 		else {
 			$articleModel = new ArticleModel();
-			$articles = $articleModel->findAll();
+			$articles = $articleModel->where("flag","a")->findAll();
 			$this->data["articles"] = $articles;
 		}
 		$this->twig->display('article/list', $this->data);

@@ -6,13 +6,17 @@
 
 {% block body %}
     <div class="container">
+        {% if loggedInUser is not empty %}
     <div id="ContainerShoppingCart"></div>
-
-  
+        {% else %}
+        <div class = "row">
+            <div class = "col-12 my-3">Vous devez être connecté pour valider votre panier.</div>
+            <a href={{ base_url('connexion') }} class = "btn btn-info">Se connecter</a>
+        </div>
+        {% endif %}
     </div>
 
   
-
 
 <script>
     $(() => {

@@ -23,8 +23,10 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item mx-3">
                     <a id="linkShoppingCart" class='text-nowrap nav-link border rounded-pill {{ slug=="shoppingCart" ? "active" : "" }}' href={{ base_url('panier') }}>
-                        <i class="fas fa-shopping-cart mx-2"></i>Mon panier</a>
-                        <div id = "quantityShoppingCart"></div>
+                        <i class="fas fa-shopping-cart mx-2"></i>Mon panier
+                    </a>
+                    <div id = "quantityShoppingCart" class="rounded-circle bg-info w-25 text-center mt-1"></div>
+                        
                 </li>
                 <li class="nav-item mx-3">
                     {% if loggedInUser %}

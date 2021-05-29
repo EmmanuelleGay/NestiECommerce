@@ -38,10 +38,10 @@ public function findStepsForApi($idRecipe){
   return $builder->get()->getResult();
 }
 
-public function countComment($idRecipe){
-  $builder = $this->db->table('comment');
-  return $builder->get()->getResult();
-}
+// public function countComment($idRecipe){
+//   $builder = $this->db->table('comment');
+//   return $builder->get()->getResult();
+// }
 
 public function searchRecipe($name)
 {
