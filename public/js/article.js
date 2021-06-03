@@ -41,7 +41,7 @@ $(() => {
         }
 
         quantityContainer.val(quantity);
-       
+
     };
 
     $(".card.article").each(function (e) { //    updateArticleCard($(this));
@@ -62,7 +62,9 @@ $(() => {
 
 
     incrementArticle.click((e) => {
+
         let cardArticle = $(e.target.closest(".card.article"));
+        console.log(cardArticle);
         updateArticleCard(cardArticle, 1);
     })
 
@@ -108,7 +110,7 @@ $(() => {
 
         quantityContainer.val(1);
 
-      //  updateCartTotal();
+        // updateCartTotal();
 
         // let id = cardArticle.data("id");
 
@@ -135,5 +137,3 @@ $(() => {
 
 
 })
-
-

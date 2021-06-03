@@ -13,7 +13,7 @@
             {{ form_open(base_url('article'),"class = w-100") }}
             <div class="col-sm-8 col-md-4 d-flex">
                
-                    <input type="text" class="form-control search-bar mr-3" aria-label="searchbar" aria-describedby="searchbar" name="article[search]" placeholder="Article" value = {{set_value('article[search]')}}>
+                    <input type="text" class="form-control search-bar mr-3" name="article[search]" placeholder="Article" value = {{set_value('article[search]')}}>
                     <button type="submit" class = "btn btn-info "><i class="fas fa-search"></i></button>
 
                 {{ validation.errors ? validation.errors.name }}
@@ -32,15 +32,18 @@
                                 <img class="card-img-top imageArticle" src="https://gay.needemand.com/realisations/NESTIAdministration/public/images/articles/{{ a.getImage(a.idImage).name }}.{{ a.getImage(a.idImage).fileExtension }}" alt="{{ a.nameToDisplay }}">
                             {% endif %}
                              <div class="card-body">
-                                <p class="card-title text-center">{{ a.nameToDisplay }}</p>
+                                <p class="card-title text-center">{{  a.nameToDisplay | upper}}</p>
                                 <p class="card-text text-center articlePrice">{{ a.getPrice(a.idArticle).price }}€</p>
                                 <div class="row justify-content-around">
-                                    <button class="col-3 btn btn-light font-weight-bold decrementArticle">-</button>
+                                    <a href="JavaScript:void(0);" class="col-3 btn btn-light font-weight-bold decrementArticle">-</a>
+                                    <!-- <button class="col-3 btn btn-light font-weight-bold decrementArticle">-</button> -->
                                     <input type="number" class="col-3 quantity" value="1" max="50" min="0">
-                                    <button class="col-3 btn btn-light font-weight-bold incrementArticle">+</button>
+                                    <a href="JavaScript:void(0);" class="col-3 btn btn-light font-weight-bold incrementArticle">+</a>
+                                    <!-- <button class="col-3 btn btn-light font-weight-bold incrementArticle">+</button> -->
                                 </div>
                                 <div class="row mt-3 justify-content-center">
-                                    <button class="btn btn-primary addToShoopingCart">Ajouter au panier</button>
+                                    <a href="JavaScript:void(0);" class="btn btn-primary addToShoopingCart">Ajouter au panier</a>
+                                    <!-- <button class="btn btn-primary addToShoopingCart">Ajouter au panier</button> -->
                                 </div>
                             </div>
                         </div>

@@ -56,6 +56,7 @@ $routes->get('/api/recipes', "ApiController::recipes");
 $routes->get('/api/recipes/(:num)/ingredient', "ApiController::recipesIngredients/$1");
 $routes->get('/api/recipes/(:num)/step', "ApiController::recipesSteps/$1");
 $routes->get('/api/category/(:alpha)', "ApiController::category/$1");
+$routes->get('/api/search/(:alpha)', "ApiController::search/$1");
 
 
 /*

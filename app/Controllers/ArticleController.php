@@ -11,7 +11,7 @@ class ArticleController extends BaseController
 	{
 		$this->data["slug"] = "article";
 
-		if (isset($_POST['article']['search'])) {
+		if (isset($_POST['article']['search']) && strlen($_POST['article']['search'])>2) {
 			$articleModel = new ArticleModel();
 			$articles = $articleModel->searchArticle($_POST['article']['search']);
 			$this->data["articles"] = $articles;

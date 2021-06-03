@@ -124,8 +124,10 @@ class UsersController extends BaseController
         }
   
         $userModel->save($user);
-  
+       
         $this->data['message'] = "success";
+        
+
       } else {
         $this->data['validation'] = $this->validator;
         $this->data["isSubmitted"] = true;

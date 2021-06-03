@@ -1,0 +1,42 @@
+CRITICAL - 2021-05-30 19:11:29 --> syntax error, unexpected token ";", expecting ")"
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(265): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(228): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(894): class_exists('\\App\\Controller...', true)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(418): CodeIgniter\CodeIgniter->startController()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2021-05-30 19:11:39 --> Undefined property: CodeIgniter\Database\MySQLi\Builder::$get
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Models\RecipeModel.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 60)
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\ApiController.php(65): App\Models\RecipeModel->searchRecipesForApi('chocolat')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\ApiController->search('chocolat')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ApiController))
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2021-05-30 19:12:03 --> mysqli_sql_exception: Table 'nesti_php.recipe' doesn't exist in C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:314
+Stack trace:
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT `idRecip...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `idRecip...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `idRecip...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT `idRecip...', Array, false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Models\RecipeModel.php(60): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\ApiController.php(65): App\Models\RecipeModel->searchRecipesForApi('chocolat')
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\ApiController->search('chocolat')
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ApiController))
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2021-05-30 19:12:03 --> Table 'nesti_php.recipe' doesn't exist
+#0 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(314): mysqli->query('SELECT `idRecip...')
+#1 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(713): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `idRecip...')
+#2 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseConnection.php(641): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `idRecip...')
+#3 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1866): CodeIgniter\Database\BaseConnection->query('SELECT `idRecip...', Array, false)
+#4 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Models\RecipeModel.php(60): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\PHP\NestiECommerce\app\Controllers\ApiController.php(65): App\Models\RecipeModel->searchRecipesForApi('chocolat')
+#6 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(937): App\Controllers\ApiController->search('chocolat')
+#7 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(433): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ApiController))
+#8 C:\xampp\htdocs\www\PHP\NestiECommerce\vendor\codeigniter4\framework\system\CodeIgniter.php(334): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\www\PHP\NestiECommerce\public\index.php(44): CodeIgniter\CodeIgniter->run()
+#10 {main}

@@ -33,7 +33,7 @@ class ArticleModel extends Model
 
   public function searchArticle($name)
   {
-    return $this->like("nameToDisplay", $name)->findAll();
+    return $this->where("flag", "a")->like("nameToDisplay", $name)->findAll();
   }
   
   // public function getPrice($idArticle)

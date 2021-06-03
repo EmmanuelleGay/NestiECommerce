@@ -5,14 +5,145 @@
 {% endblock %}
 
 {% block body %}
-<h1>API</h1>
-<ul>
-    <li>
-        <a href="<?= site_url("api/recipes") ?>">Voir toutes les recettes</a>
-    </li>
-    <li>
-        <a href="<?= site_url("api/category/seazon") ?>">Voir toutes les recettes de saison</a>
-    </li>
-</ul>
-{% endblock %}
+    <div class="container mt-3">
+        <div class="row ">
+            <h1 class="col-md-12 text-center text-primary ">Aide de l'API</h1>
+        </div>
 
+        <div class="row mt-3">
+            L'API REST fournit une API de Web services pour intéragir avec Nesti.
+        </div>
+        <div class="row mt-3">
+            L'API est accessible uniquement via le protocole Https et accepte les requêtes HTTP GET.</br>
+        Les données retournées sont en format JSON, le content-type de la réponse est "application/json".</br>
+</div>
+<div class="row mt-3">Chaque action fournie par l'API nécessite le passage d'un Token fourni. Contactez nous pour obtenir votre token.</div>
+
+
+    <h2 class="row mt-3">Recette</h2>
+    <p class="row">Cette méthode permet d'obtenir toutes les recettes disponibles</p>
+    <div class="row"> <strong>GET : </strong> {{ base_url('api/recipes?token=') }}{token}</div>
+    <div class="row">
+        <div class="col-12">Exemple de réponse : </div>
+        <div class="col-12">
+            <pre><code>
+            [
+                {
+                    "idRecipe":"5",
+                    "cat":"glutenFree",
+                    "title":"Crepes au nutella",
+                    "author":"Bon Jean",
+                    "nameImage":"CrepesNutella",
+                    "fileExtension":"jpg",
+                    "difficulty":"2"
+                },
+                {
+                    "idRecipe":"7",
+                    "cat":"glutenFree",
+                    "title":"tarte aux pommes",
+                    "author":"Bon Jean",
+                    "nameImage":"tartePommes",
+                    "fileExtension":"jpeg",
+                    "difficulty":"5"
+                }
+            ]
+            </code></pre>
+        </div>
+    </div>
+
+    <h2 class="row mt-3">Recette par catégorie</h2>
+    <p class="row">Cette méthode permet d'obtenir toutes les recettes d'une catégorie donnée</p>
+    <div class = "row">Valeur possible de "name" : </div>
+    <ul>
+        <li>easy</li>
+        <li>traditional</li>
+        <li>seasonnal</li>
+        <li>glutenFree</li>
+
+    </ul>
+    <div class="row"> <strong>GET : </strong> {{ base_url('api/category') ~'/{name}/recipes?token=' }}{token}</div>
+    <div class="row">
+        <div class="col-12">Exemple de réponse : </div>
+        <div class="col-12">
+            <pre><code>
+                [
+                    {
+                        "idRecipe":"2",
+                        "cat":"easy",
+                        "title":"Gateau aux oeufs et au beurre",
+                        "author":"Bon Jean",
+                        "nameImage":"gateauOeufs",
+                        "fileExtension":"jpg",
+                        "difficulty":"5"
+                    },
+                    {
+                    "idRecipe":"5",
+                    "cat":"easy",
+                    "title":"Crepes au nutella",
+                    "author":"Bon Jean",
+                    "nameImage":"CrepesNutella",
+                    "fileExtension":"jpg",
+                    "difficulty":"2"
+                    }
+                  ]
+            </code></pre>
+        </div>
+    </div>
+
+    <h2 class="row mt-3">Ingrédients d'une recette</h2>
+    <p class="row">Cette méthode permet d'obtenir tous les ingrédients d'une recette</p>
+
+    <div class="row"> <strong>GET : </strong> {{ base_url('api/recipes') ~'/{idRecipe}/ingredient?token=' }}{token}</div>
+    
+    <div class="row">
+        <div class="col-12">Exemple de réponse : </div>
+        <div class="col-12">
+            <pre><code>
+                [
+                    {
+                    "idRecipe":"2",
+                    "idIngredient":"2",
+                    "nameIngredient":"oeuf",
+                    "quantityIngredient":"4",
+                    "unitIngredient":"piece"
+                    },
+                    {
+                    "idRecipe":"2",
+                    "idIngredient":"3",
+                    "nameIngredient":"sucre",
+                    "quantityIngredient":"2",
+                    "unitIngredient":"kg"
+                    }
+                ]
+            </code></pre>
+        </div>
+    </div>
+
+    <h2 class="row mt-3">Etapes de préparations d'une recette</h2>
+    <p class="row">Cette méthode permet d'obtenir toutes les étapes de préparations d'une recette</p>
+
+    <div class="row"> <strong>GET : </strong> {{ base_url('api/recipes') ~'/{idRecipe}/step?token=' }}{token}</div>
+    
+    <div class="row">
+        <div class="col-12">Exemple de réponse : </div>
+        <div class="col-12">
+            <pre><code>
+                [
+                    {
+                        "idRecipe":"2",
+                        "idParagraph":"5",
+                        "order":"1",
+                        "paragraph":"eplucher les oeufs"
+                    },
+                    {
+                        "idRecipe":"2",
+                        "idParagraph":"9",
+                        "order":"3",
+                        "paragraph":"faire cuire les oeufs"
+                    }
+              ]
+            </code></pre>
+        </div>
+    </div>
+
+</div>{% endblock %}

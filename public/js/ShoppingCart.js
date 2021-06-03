@@ -11,7 +11,6 @@ class ShoppingCart {
         if (selector) {
             this.element = document.createElement("div");
             this.element.innerHTML = `
-
             <h1 class = "col-12 text-center text-primary my-3">Détail de la commande</h1>
 
 
@@ -38,58 +37,15 @@ class ShoppingCart {
                 <div class="total col-2"></div>
             </div>
 
-            <div class = "row my-3">
-                <div class="col-12 font-weight-bold">Renseigner votre moyen de paiement</div>
-            </div>
+
             
-
-            <form>
-
-            <div class = "form-row">
-                <div class="col-xs-12 col-md-4 my-1">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fab fa-cc-visa"></i></div>
-                        </div>
-                        <input type="text" class="form-control" name="order[numberCreditCard]" id="numberCreditCard" placeholder="N° de carte">
-                    </div>
-                </div>
-            </div>
-
-            <div class = "form-row">
-                <div class="col-xs-12 col-md-4 my-1">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
-                        </div>
-                        <input type="date" class="form-control" name="order[expirationCreditCard]" id="expirationCreditCard" placeholder="Date d'expiration">
-                    </div>
-                </div>
-            </div>
-
-            <div class = "form-row">
-                <div class="col-xs-12 col-md-4 my-1">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="fas fa-credit-card"></i></div>
-                        </div>
-                        <input type="text" class="form-control" name="order[Cvv]" id="cvv" placeholder="Cvv" max-length="3">
-                    </div>
-                </div>
-            </div>
-           
-            <div class = "row justify-content-end">
-                <a href="JavaScript:void(0);" class = "btn btn-primary validOrder" >Valider la commande</a>
-            </div>
-
-         
-
-            </form>
             `;
             document.querySelector(selector).appendChild(this.element);
 
-            $(this.element).find(".validOrder").click(() => this.validateOrder());
 
+            let btnOrder = $("#validOrder");
+
+            btnOrder.click(() => this.validateOrder());
         }
 
         this.clearShoppingCart();
@@ -104,28 +60,48 @@ class ShoppingCart {
         let creditCardNumber = document.querySelector("#numberCreditCard").value;
         let expirationDate = document.querySelector("#expirationCreditCard").value;
         let ccv = document.querySelector("#cvv").value;
+        let valid = true;
 
-
-        if(validCreditCard(creditCardNumber)){
-
-            $.post(vars.baseUrl + "/saveOrder", {
-                [vars.csrfName]: vars.csrfHash,
-                "creditCardNumber": creditCardNumber,
-                "expirationDate": expirationDate,
-                "ccv": ccv,
-                "articles": this.articles
-    
-            }, (response) => { 
-                if(response == "success"){
-                    window.location.href = vars.baseUrl + "/commande"
-                }
-                console.log(response);
-
-            });
-
-        } else{
-            alert("Votre numéro de carte n'est pas valide, merci de vérifier votre saisie");
+        if(jQuery.isEmptyObject(this.articles)){
+            valid = false;
+            alert("Votre panier est vide, nous ne pouvez pas valider la commande");
         }
+       console.log(typeof(this.articles));
+
+        if (creditCardNumber=="" || expirationDate==""  || ccv==""   ) {
+            valid = false;
+            alert("Vous devez renseigner tous les champs pour valider la commande");
+        }
+
+        if(ccv.length > 3 || ccv.length < 3){
+            valid = false;
+            alert("Le champ Cvv n'est pas correct");
+        }
+
+        if(valid){
+            if (validCreditCard(creditCardNumber)) {
+
+                $.post(vars.baseUrl + "/saveOrder", {
+                    [vars.csrfName]: vars.csrfHash,
+                    "creditCardNumber": creditCardNumber,
+                    "expirationDate": expirationDate,
+                    "ccv": ccv,
+                    "articles": this.articles
+    
+                }, (response) => {
+                    if (response == "success") {
+                        this.articles = {};
+                        this.update();
+                        window.location.href = vars.baseUrl + "/commande"
+                    }
+                });
+    
+            } else {
+                alert("Votre numéro de carte n'est pas valide, merci de vérifier votre saisie");
+            }
+        }
+
+       
 
     }
 
@@ -255,10 +231,11 @@ const orderLine = (id, name, price, quantity, shoppingCart) => {
 }
 
 // Takes a credit card string value and returns true on valid number
-function validCreditCard(value) { // Accept only digits, dashes or spaces
+function validCreditCard (value) { // Accept only digits, dashes or spaces
     if (/[^0-9-\s]+/.test(value)) 
         return false;
     
+
 
     // The Luhn Algorithm.
     let nCheck = 0,
