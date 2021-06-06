@@ -20,11 +20,11 @@ class ArticleModel extends Model
 
   public function findArticles()
   {
-    //   $builder = $this->db->table('nes_ad_article');
-    //  $builder->join('nes_ad_image','nes_ad_article.idImage = nes_ad_image.idImage', 'left');
-    //  $articles = $builder->get()->getResult();
+  //    $builder = $this->db->table('nes_ad_article');
+  //   $builder->join('nes_ad_image','nes_ad_article.idImage = nes_ad_image.idImage', 'left');
+  //   $articles = $builder->get()->getResult();
 
-    //   return $builder->get()->getResult();
+ //    return $builder->get()->getResult();
 
     return $this->join('nes_ad_image', 'nes_ad_article.idImage = nes_ad_image.idImage', 'left');
   }

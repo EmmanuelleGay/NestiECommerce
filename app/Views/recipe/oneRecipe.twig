@@ -67,7 +67,7 @@
                             <h3 class="col-md-6 col-xs-12 font-weight-bold secondaryColor">Préparations</h3>
                             {% for p in recipe.getParagraphs() %}
                                 <div class="col-12">
-                                    {{ p.content }}</div>
+                                    {{ p.content |raw }}</div>
                             {% endfor %}
                         </div>
 
