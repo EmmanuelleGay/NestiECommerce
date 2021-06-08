@@ -52,8 +52,6 @@ class BaseController extends Controller
 			"baseUrl" => base_url(),
 		];
 
-	
-		
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
 
@@ -67,9 +65,11 @@ class BaseController extends Controller
 		$this->twig = new \Kenjis\CI4Twig\Twig($config);
 	}
 
-
 	/**
+	 * getLoggedInUser 
 	 * Get the value of user
+	 *
+	 * @param  mixed $refresh
 	 */
 	public static function getLoggedInUser($refresh = false)
 	{
@@ -84,7 +84,13 @@ class BaseController extends Controller
 		}
 		return self::$loggedInUser;
 	}
-
+	
+	/**
+	 * setLoggedInUser
+	 *
+	 * @param  mixed $user
+	 * @param  mixed $plaintextPassword
+	 */
 	public static function setLoggedInUser($user, $plaintextPassword = null)
 	{
 		if ($user != null) {

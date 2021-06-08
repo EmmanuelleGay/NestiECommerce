@@ -9,29 +9,25 @@ use App\Models\ArticlePriceModel;
 class Article extends BaseEntity
 {
 
-    // public function getImage($idImage){
-    //     $modelImage = new ImageModel();
-    //     $image = $modelImage->find($idImage);
-
-    //     return $image;
-    // }
-
-    //     $builder = $this->db->table('view_api_recipe_steps');
-    //     $builder->where("idRecipe", $idRecipe);
-    //     return $builder->get()->getResult();
-
-
-    public function getPrice($idArticle)
+    /**
+     * getPrice
+     *
+     * @param  mixed $idArticle
+     * @return Object
+     */
+    public function getPrice($idArticle) : Object
     {
-        // $price = "";
-        // $builder = $this->db->table('nes_ad_articleprice');
-        // $builder->where("idArticle", $idArticle);
-        // return $builder->get()->getResult();
         $ArticlePriceModel = new ArticlePriceModel();
         return $ArticlePriceModel->where("idArticle", $idArticle)->first();
     }
-
-    public function getImage($idImage){
+    
+    /**
+     * getImage
+     *
+     * @param  mixed $idImage
+     * @return Object
+     */
+    public function getImage($idImage) : Object {
         $imageModel = new ImageModel();
         return $imageModel->where("idImage", $idImage)->first();
     }

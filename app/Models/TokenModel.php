@@ -11,8 +11,14 @@ class TokenModel extends Model
     protected $primaryKey = 'idToken';
 
 
-
-    public function findToken($token)
+    
+    /**
+     * findToken for API
+     *
+     * @param  mixed $token
+     * @return Object
+     */
+    public function findToken($token) : Object
     {
        return $this->where("token", $token)->first();
     }

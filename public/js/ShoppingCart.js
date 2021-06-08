@@ -66,7 +66,6 @@ class ShoppingCart {
             valid = false;
             alert("Votre panier est vide, nous ne pouvez pas valider la commande");
         }
-       console.log(typeof(this.articles));
 
         if (creditCardNumber=="" || expirationDate==""  || ccv==""   ) {
             valid = false;
@@ -93,6 +92,9 @@ class ShoppingCart {
                         this.articles = {};
                         this.update();
                         window.location.href = vars.baseUrl + "/commande"
+                    }
+                    else if(response =="failed"){
+                        alert("Votre commande n'a pas pu être validée.");
                     }
                 });
     

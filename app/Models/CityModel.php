@@ -10,8 +10,15 @@ class CityModel extends Model
     protected $returnType = 'App\Entities\City';
     protected $primaryKey = "idCity";
     protected $allowedFields = ["name"];
-
-    public function findCity($name)
+    
+    
+    /**
+     * findCity
+     *
+     * @param  mixed $name
+     * @return Object
+     */
+    public function findCity($name) : Object
     {
        return $this->where("name", $name)->first();
     }

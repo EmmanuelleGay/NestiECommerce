@@ -7,7 +7,12 @@ use App\Models\RecipeModel;
 use App\Models\TokenModel;
 
 class ApiController extends BaseController
-{
+{    
+    /**
+     * index
+     *
+     * @return void
+     */
     public function index()
     {
         //   $token = bin2hex(random_bytes(20));
@@ -46,7 +51,11 @@ class ApiController extends BaseController
     }
 
     /**
+     * recipesIngredients
      * find recipes and return Json with ingredients
+     *
+     * @param  mixed $idRecipe
+     * @return void
      */
     public function recipesIngredients($idRecipe)
     {
@@ -71,7 +80,11 @@ class ApiController extends BaseController
     }
 
     /**
+     * recipesSteps
      * find recipes and return Json with preparation's steps
+     *
+     * @param  mixed $idRecipe
+     * @return void
      */
     public function recipesSteps($idRecipe)
     {
@@ -91,10 +104,12 @@ class ApiController extends BaseController
         }
     }
 
-
-
+  
     /**
-     * find recipes by category and return Json
+     * category
+     *
+     * @param  mixed $cat
+     * @return void
      */
     public function category($cat)
     {
@@ -122,7 +137,13 @@ class ApiController extends BaseController
             die();
         }
     }
-
+    
+    /**
+     * search
+     *
+     * @param  mixed $search
+     * @return void
+     */
     public function search($search)
     {
         $model = new TokenModel();

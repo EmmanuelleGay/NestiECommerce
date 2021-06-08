@@ -64,7 +64,6 @@ $(() => {
     incrementArticle.click((e) => {
 
         let cardArticle = $(e.target.closest(".card.article"));
-        console.log(cardArticle);
         updateArticleCard(cardArticle, 1);
     })
 
@@ -114,18 +113,13 @@ $(() => {
 
         // let id = cardArticle.data("id");
 
-        // // console.log("qté: " + quantity + "id : " + id);
-
         // localStorage.setItem("article_" + id, quantity);
 
 
         // for (let i = 0; i < localStorage.length; i++) {
         //     let sumQuantity = 0;
-        //     //       console.log(localStorage.key(i));
 
         //     let quantityStored = parseInt(localStorage.getItem(localStorage.key(i)));
-        //     // console.log(quantityStored);
-        //     //        console.log(quantityStored);
         //     sumQuantity += quantityStored;
 
         // }

@@ -12,7 +12,12 @@ use App\Entities\Comment;
 $session = \Config\Services::session();
 
 class Recipecontroller extends BaseController
-{
+{	
+	/**
+	 * list
+	 *
+	 * @return void
+	 */
 	public function list()
 	{
 		$this->data["slug"] = "recipe";
@@ -30,7 +35,13 @@ class Recipecontroller extends BaseController
 	
 		$this->twig->display("recipe/list", $this->data);
 	}
-
+	
+	/**
+	 * oneRecipe
+	 *
+	 * @param  mixed $idRecipe
+	 * @return void
+	 */
 	public function oneRecipe($idRecipe)
 	{
 		$this->data["slug"] = "recipe";

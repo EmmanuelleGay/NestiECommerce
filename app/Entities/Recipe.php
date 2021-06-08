@@ -12,38 +12,80 @@ use App\Models\CommentModel;
 
 class Recipe extends BaseEntity
 {
-
-    public function getTag(){
+    
+    /**
+     * getTag
+     *
+     * @return Object
+     */
+    public function getTag(): Object {
         $tagModel = new TagModel();
         return $tagModel->where("idRecipe", $this->idRecipe)->first();
     }
-
-    public function getImage(){
+    
+    
+    /**
+     * getImage
+     *
+     * @return Object
+     */
+    public function getImage() : Object {
         $imageModel = new ImageModel();
         return $imageModel->where("idImage", $this->idImage)->first();
     }
-
-    public function getComments(){
+    
+    
+    /**
+     * getComments
+     *
+     * @return Object
+     */
+    public function getComments() : Object {
         $commentModel = new CommentModel();
         return $commentModel->where("idRecipe", $this->idRecipe)->orderBy('dateCreation', 'desc')->findAll();
     }
-
-    public function getIngredientRecipe(){
+    
+     
+    /**
+     * getIngredientRecipe
+     *
+     * @return Object
+     */
+    public function getIngredientRecipe() : Object {
     $modelIngredientRecipe = new IngredientRecipeModel();
     return $modelIngredientRecipe->where("idRecipe", $this->idRecipe)->findAll();
     }
-
-    public function getParagraphs(){
+    
+    
+    /**
+     * getParagraphs
+     *
+     * @return Object
+     */
+    public function getParagraphs() : Object {
         $model = new ParagraphModel();
         return  $model->where("idRecipe", $this->idRecipe)->orderBy('paragraphOrder', 'asc')->findAll();
     }
-
-    public function getGrades(){
+    
+    
+    /**
+     * getGrades
+     *
+     * @return Object
+     */
+    public function getGrades() : Object {
         $model = new GradesModel();
         return $model->where("idRecipe", $this->idRecipe)->findAll();
     }
-
-    public function getGrade($user){
+    
+    
+    /**
+     * getGrade
+     *
+     * @param  mixed $user
+     * @return Object
+     */
+    public function getGrade($user) : Object {
         $model = new GradesModel();
         return $model->where("idRecipe", $this->idRecipe)->where("idUsers", $user->idUsers)->first();
     }

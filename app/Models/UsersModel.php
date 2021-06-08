@@ -11,7 +11,15 @@ class UsersModel extends Model
     protected $allowedFields = ["lastName", "firstName", "email", "passwordHash", "flag", "login", "address1", "address2", "zipCode", "idCity"];
     protected $primaryKey = 'idUsers';
 
-    public function findUser($login)
+      
+    
+    /**
+     * findUser
+     *
+     * @param  mixed $login
+     * @return Object
+     */
+    public function findUser($login) : Object
     {
        return $this->where("login", $login)->first();
     }

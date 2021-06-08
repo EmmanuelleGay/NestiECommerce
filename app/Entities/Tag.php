@@ -5,8 +5,15 @@ use App\Models\IsTaggedModel;
 
 class Tag extends BaseEntity
 {
-
-    public function getIsTagged($idTag)
+    
+    
+    /**
+     * getIsTagged
+     *
+     * @param  mixed $idTag
+     * @return Object
+     */
+    public function getIsTagged($idTag) : Object
     {
         $model = new IsTaggedModel();
         return  $model->where("idTag", $idTag)->findAll();

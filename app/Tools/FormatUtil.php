@@ -51,13 +51,28 @@ class FormatUtil
         echo "<pre>" . htmlentities(print_r($var, true)) . "</pre>";
     }
 
+        
+    /**
+     * translate
+     *
+     * @param  mixed $english
+     * @param  mixed $dataset
+     */
     public static function translate($english, $dataset="default")
     {
         return static::TRANSLATIONS[$dataset][$english];
        
     }
-
-    public static function combineRules($rules1, $rules2){
+    
+    
+    /**
+     * combineRules
+     *
+     * @param  mixed $rules1
+     * @param  mixed $rules2
+     * @return array
+     */
+    public static function combineRules($rules1, $rules2): array {
         $validation =  \Config\Services::validation();
 		return array_merge($validation->getRuleGroup($rules1),$validation->getRuleGroup($rules2));
 	}

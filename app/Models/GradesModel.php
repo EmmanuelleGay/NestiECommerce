@@ -11,8 +11,14 @@ class GradesModel extends Model
     protected $allowedFields = ['rating', 'idRecipe', 'idUsers'];
 
 
-
-    public function findRecipe($idRecipe)
+    
+    /**
+     * findRecipe
+     *
+     * @param  mixed $idRecipe
+     * @return Object
+     */
+    public function findRecipe($idRecipe) : Object
     {
        return $this->where("idRecipe", $idRecipe)->first();
     }

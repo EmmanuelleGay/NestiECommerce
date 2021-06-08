@@ -6,7 +6,12 @@ use App\Models\ArticleModel;
 use App\Models\UsersModel;
 
 class ArticleController extends BaseController
-{
+{	
+	/**
+	 * list
+	 *
+	 * @return void
+	 */
 	public function list()
 	{
 		$this->data["slug"] = "article";
@@ -23,7 +28,12 @@ class ArticleController extends BaseController
 		}
 		$this->twig->display('article/list', $this->data);
 	}
-
+	
+	/**
+	 * oneArticle
+	 *
+	 * @return void
+	 */
 	public function oneArticle()
 	{
 		$this->data["slug"] = "article";

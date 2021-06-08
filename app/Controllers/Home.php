@@ -7,7 +7,12 @@ use App\Models\RecipeModel;
 $session = \Config\Services::session();
 
 class Home extends BaseController
-{
+{	
+	/**
+	 * index
+	 *
+	 * @return void
+	 */
 	public function index()
 	{
 
@@ -32,7 +37,12 @@ class Home extends BaseController
 		$this->data["slug"] = "home";
 		$this->twig->display('home', $this->data);
 	}
-
+	
+	/**
+	 * test
+	 *
+	 * @return void
+	 */
 	public function test()
 	{
 		return view('test');

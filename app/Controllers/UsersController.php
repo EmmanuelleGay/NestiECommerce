@@ -10,7 +10,12 @@ use App\Tools\FormatUtil;
 
 class UsersController extends BaseController
 {
-
+  
+  /**
+   * login
+   *
+   * @return void
+   */
   public function login()
   {
 
@@ -36,7 +41,12 @@ class UsersController extends BaseController
 
     $this->twig->display('users/login', $this->data);
   }
-
+  
+  /**
+   * logout
+   *
+   * @return void
+   */
   public function logout()
   {
     BaseController::setLoggedInUser(null);
@@ -47,7 +57,12 @@ class UsersController extends BaseController
     $this->twig->display('users/login', $this->data);
   }
 
-
+  
+  /**
+   * oneUser
+   *
+   * @return void
+   */
   public function oneUser()
   {
     $this->data["slug"] = "user";
@@ -87,7 +102,12 @@ class UsersController extends BaseController
   }
 
 
-
+  
+  /**
+   * registration
+   *
+   * @return void
+   */
   public function registration()
   {
     $this->data["slug"] = "user";
