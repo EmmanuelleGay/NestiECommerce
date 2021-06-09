@@ -38,9 +38,9 @@ class Recipe extends BaseEntity
     /**
      * getComments
      *
-     * @return Object
+     * @return array
      */
-    public function getComments() : Object {
+    public function getComments() : array {
         $commentModel = new CommentModel();
         return $commentModel->where("idRecipe", $this->idRecipe)->orderBy('dateCreation', 'desc')->findAll();
     }
@@ -49,9 +49,9 @@ class Recipe extends BaseEntity
     /**
      * getIngredientRecipe
      *
-     * @return Object
+     * @return array
      */
-    public function getIngredientRecipe() : Object {
+    public function getIngredientRecipe() : array {
     $modelIngredientRecipe = new IngredientRecipeModel();
     return $modelIngredientRecipe->where("idRecipe", $this->idRecipe)->findAll();
     }
@@ -60,9 +60,9 @@ class Recipe extends BaseEntity
     /**
      * getParagraphs
      *
-     * @return Object
+     * @return array
      */
-    public function getParagraphs() : Object {
+    public function getParagraphs() : array {
         $model = new ParagraphModel();
         return  $model->where("idRecipe", $this->idRecipe)->orderBy('paragraphOrder', 'asc')->findAll();
     }
@@ -71,9 +71,9 @@ class Recipe extends BaseEntity
     /**
      * getGrades
      *
-     * @return Object
+     * @return array
      */
-    public function getGrades() : Object {
+    public function getGrades() : array {
         $model = new GradesModel();
         return $model->where("idRecipe", $this->idRecipe)->findAll();
     }
@@ -83,9 +83,9 @@ class Recipe extends BaseEntity
      * getGrade
      *
      * @param  mixed $user
-     * @return Object
+     * @return array
      */
-    public function getGrade($user) : Object {
+    public function getGrade($user) : array {
         $model = new GradesModel();
         return $model->where("idRecipe", $this->idRecipe)->where("idUsers", $user->idUsers)->first();
     }

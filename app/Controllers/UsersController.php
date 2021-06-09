@@ -67,7 +67,7 @@ class UsersController extends BaseController
   {
     $this->data["slug"] = "user";
 
-    if (isset($_POST['login'])) {
+    if (isset($this->request->getPost('login')) {
 
       $userRules = FormatUtil::combineRules("userRules", "userRulesSignUp");
 
@@ -92,10 +92,12 @@ class UsersController extends BaseController
 
         $this->data['message'] = "success";
         $this->data["loggedInUser"] = BaseController::getLoggedInUser(true);
-      } else {
+      } 
+      else {
         $this->data['validation'] = $this->validator;
         $this->data["isSubmitted"] = true;
       };
+
     }
 
     $this->twig->display('users/oneUser', $this->data);
@@ -114,29 +116,29 @@ class UsersController extends BaseController
 
     $userModel = new UsersModel();
 
-    if (isset($_POST['login'])) {
+    if (isset($this->request->getPost('login')) {
 
       $userRules = FormatUtil::combineRules("userRules", "userRulesRegistration");
 
       if ($this->validate($userRules)) {
 
         $user = new Users();
-        $user->setPasswordHashFromPlaintext($_POST["password"]);
+        $user->setPasswordHashFromPlaintext($this->request->getPost("password"));
         $user->flag = "a";
-        $user->lastName = $_POST["lastName"];
-        $user->firstName = $_POST["firstName"];
-        $user->address1 = $_POST["address1"];
-        $user->address2 = $_POST["address2"];
-        $user->zipCode = $_POST["zipCode"];
-        $user->email = $_POST["email"];
-        $user->login =  $_POST["login"];
+        $user->lastName = $this->request->getPost("lastName");
+        $user->firstName =$this->request->getPost("firstName");
+        $user->address1 = $this->request->getPost("address1");
+        $user->address2 = $this->request->getPost("address2");
+        $user->zipCode = $this->request->getPost("zipCode");
+        $user->email = $this->request->getPost("email");
+        $user->login =  $this->request->getPost("login");
   
         $citymodel = new CityModel();
-        $city = $citymodel->findCity($_POST["city"]);
+        $city = $citymodel->findCity($this->request->getPost("city"));
   
         if ($city == null) {
           $city = new City();
-          $city->name = $_POST["city"];
+          $city->name = $this->request->getPost("city");
           $citymodel->save($city);
           $user->idCity = $citymodel->insertID();
         } else {

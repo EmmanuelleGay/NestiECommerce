@@ -11,9 +11,9 @@ class Tag extends BaseEntity
      * getIsTagged
      *
      * @param  mixed $idTag
-     * @return Object
+     * @return array
      */
-    public function getIsTagged($idTag) : Object
+    public function getIsTagged($idTag) : array
     {
         $model = new IsTaggedModel();
         return  $model->where("idTag", $idTag)->findAll();
